@@ -1,4 +1,6 @@
 {
+	//With CmakeTools you can debug and build without using tasks.json
+
 	"version": "2.0.0",
 	"tasks": [
 		{
