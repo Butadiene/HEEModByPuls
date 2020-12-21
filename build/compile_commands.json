@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/skipjack/Document/HEEModByPuls/build/src",
+  "command": "/bin/g++-9  -DHeeModandGeoMagPuls_EXPORTS -I/home/skipjack/Document/HEEModByPuls/include  -g -fPIC   -o CMakeFiles/HeeModandGeoMagPuls.dir/Account.cpp.o -c /home/skipjack/Document/HEEModByPuls/src/Account.cpp",
+  "file": "/home/skipjack/Document/HEEModByPuls/src/Account.cpp"
+},
+{
+  "directory": "/home/skipjack/Document/HEEModByPuls/build/test",
+  "command": "/bin/g++-9   -I/home/skipjack/Document/HEEModByPuls/include  -g   -o CMakeFiles/a.out.dir/AccountTest.cpp.o -c /home/skipjack/Document/HEEModByPuls/test/AccountTest.cpp",
+  "file": "/home/skipjack/Document/HEEModByPuls/test/AccountTest.cpp"
+}
+]
