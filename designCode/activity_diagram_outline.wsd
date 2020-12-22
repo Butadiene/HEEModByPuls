@@ -1,0 +1,10 @@
+@startuml activity_diagram
+
+(*)--> "Allocate memory"
+note right:twice as much as memory as all phase space density
+
+-->"Second Activity"
+
+-->(*)
+
+@end uml
