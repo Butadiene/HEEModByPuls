@@ -1,12 +1,15 @@
 @startuml activity_diagram
-
-(*)-->"Create an array for phase space density"
+start 
+:Create an array for phase space density";
 note right:like this array[x1(t),x1(t-Δt),x2(t),x2(t-Δt),x3(t),x3(t-Δt)...]
 
--->"Substitute the initial value"
+:"Substitute the initial value";
 
--->""
 
+repeat
+    :act1;
+    :act2;
+repeat while (end)
 
 
 -->(*)
