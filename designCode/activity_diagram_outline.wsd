@@ -1,0 +1,81 @@
+@startuml activity_diagram_outline
+start 
+partition Initialization {
+    :Create an array for PSD;
+    note right:like this array[x1(t),x1(t-Δt),x2(t),x2(t-Δt),x3(t),x3(t-Δt)...]
+
+    :Substitute the initial value for PSD;
+}
+
+while(Loop:number of \n**timestep**)
+    while(How many times?) is (1,2 or 3)
+        if(How many times) then(1 or 3)
+     
+            partition "Real Space Advection term" {
+                while (Loop:number of\n**Real PSD**)
+                    :Take the sum of
+                    Velocity PSD;
+                    note:at every Real PSD
+                endwhile
+
+                while(Loop:number of\n**Real PSD**)
+                    :get PSD of 
+                    **i+1,i+2,i-1,i-2** in **Real Space**;
+                    
+                    if(Cross the border?) then(yes)
+                    :Apply boundary conditions;
+                    endif
+
+                    :Calculate v*∂f/∂x 
+                    by Umeda method;
+                    while(Loop:number of\n**Velocity PSD**)
+                        :update PSD 
+                        Δt/2*v*∂f/∂x;
+                    endwhile
+
+                endwhile
+            }
+        else(2)
+            partition "Velocity Space Advection term"{
+                while(Loop number of\nReal PSD)
+                    :get field Parameter
+                    (Electric field and Magnetic Field);
+                    while(Loop number of\nVelocity PSD)
+                        :get PSD of 
+                        **i+1,i+2,i-1,i-2** in **Velocity Space**;
+                        
+                        if(Cross the border?) then(yes)
+                        :Apply boundary conditions;
+                        endif
+
+                        :Calculate (E+v×B)*∂f/∂v 
+                        by Umeda method;
+                        while(Loop:number of\n**Velocity PSD**)
+                            :update PSD 
+                            Δt*(E+v×B)*∂f/∂v;
+                        endwhile
+                    endwhile
+                endwhile
+            }
+        endif
+    end while(4)
+
+    partition "update field" {
+        while(Loop number of\n**Real PSD**)
+                :update Field;
+        endwhile
+    }
+
+    partition output {
+        if(Export?) then (yes)
+            while(Loop number of\n**ALL PSD**)
+                :export PSD;
+            endwhile
+        endif
+    }
+endwhile
+
+
+stop
+
+@end uml
