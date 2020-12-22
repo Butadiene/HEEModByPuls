@@ -13,8 +13,7 @@ while(Loop:number of \n**timestep**)
      
             partition "Real Space Advection term" {
                 while (Loop:number of\n**Real PSD**)
-                    :Take the sum of
-                    Velocity PSD;
+                    :integrate Velocity PSD;
                     note:at every Real PSD
                 endwhile
 
