@@ -1,1 +1,0 @@
-/bin/g++-9 -fPIC -g  -shared -Wl,-soname,libHeeModandGeoMagPuls.so -o libHeeModandGeoMagPuls.so CMakeFiles/HeeModandGeoMagPuls.dir/Account.cpp.o 

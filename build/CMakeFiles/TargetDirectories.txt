@@ -1,8 +1,0 @@
-/home/skipjack/Document/HEEModByPuls/build/CMakeFiles/rebuild_cache.dir
-/home/skipjack/Document/HEEModByPuls/build/CMakeFiles/edit_cache.dir
-/home/skipjack/Document/HEEModByPuls/build/src/CMakeFiles/rebuild_cache.dir
-/home/skipjack/Document/HEEModByPuls/build/src/CMakeFiles/edit_cache.dir
-/home/skipjack/Document/HEEModByPuls/build/src/CMakeFiles/HeeModandGeoMagPuls.dir
-/home/skipjack/Document/HEEModByPuls/build/test/CMakeFiles/rebuild_cache.dir
-/home/skipjack/Document/HEEModByPuls/build/test/CMakeFiles/edit_cache.dir
-/home/skipjack/Document/HEEModByPuls/build/test/CMakeFiles/a.out.dir
