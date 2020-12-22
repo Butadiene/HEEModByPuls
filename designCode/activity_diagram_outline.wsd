@@ -1,9 +1,13 @@
 @startuml activity_diagram
 
-(*)--> "Allocate memory"
-note right:twice as much as memory as all phase space density
+(*)-->"Create an array for phase space density"
+note right:like this array[x1(t),x1(t-Δt),x2(t),x2(t-Δt),x3(t),x3(t-Δt)...]
 
--->"Second Activity"
+-->"Substitute the initial value"
+
+-->""
+
+
 
 -->(*)
 
