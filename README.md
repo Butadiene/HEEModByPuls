@@ -8,6 +8,9 @@ for CMake
 Super CMake tooooool
 ### C/C++(from Microsoft)
 easy coding!
+### PlantUML
+for PlantUML on VSCode
+
 
 ## VSCode Extensions(not must)
 ### Git History
@@ -19,3 +22,7 @@ Attention! if you use WSL2, you should install all software  WSL2.
   for CMake
 ### compiler 
   c++ compiler(ex.g++,clang10)
+### Java
+  for PlantUML
+### graphviz
+  for PlantUML
