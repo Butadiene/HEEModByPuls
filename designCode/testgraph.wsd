@@ -5,6 +5,7 @@ class User{
     +sign_in()
 }
 
+
 class Group {
     name
 }
