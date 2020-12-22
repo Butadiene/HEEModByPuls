@@ -37,10 +37,10 @@ while(Loop:number of \n**timestep**)
             }
         else(2)
             partition "Velocity Space Advection term"{
-                while(Loop number of\nReal PSD)
+                while(Loop number of\n**Real PSD**)
                     :get field Parameter
                     (Electric field and Magnetic Field);
-                    while(Loop number of\nVelocity PSD)
+                    while(Loop number of\n**Velocity PSD**)
                         :get PSD of 
                         **i+1,i+2,i-1,i-2** in **Velocity Space**;
                         
@@ -50,10 +50,8 @@ while(Loop:number of \n**timestep**)
 
                         :Calculate (E+v×B)*∂f/∂v 
                         by Umeda method;
-                        while(Loop:number of\n**Velocity PSD**)
-                            :update PSD 
-                            Δt*(E+v×B)*∂f/∂v;
-                        endwhile
+                        :update PSD 
+                        Δt*(E+v×B)*∂f/∂v;
                     endwhile
                 endwhile
             }
