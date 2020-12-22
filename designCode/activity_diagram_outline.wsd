@@ -1,17 +1,45 @@
 @startuml activity_diagram
 start 
-:Create an array for phase space density";
-note right:like this array[x1(t),x1(t-Δt),x2(t),x2(t-Δt),x3(t),x3(t-Δt)...]
+partition Initialization {
+    :Create an array for PSD;
+    note right:like this array[x1(t),x1(t-Δt),x2(t),x2(t-Δt),x3(t),x3(t-Δt)...]
 
-:"Substitute the initial value";
+    :Substitute the initial value for PSD;
+}
 
+repeat:Loop:number of \n**timestep**;
+    while(How many times?) is (empty)
+        :tes1;
+     
+        end while(fu)
+        :test4;
+    partition "Real Space Advection term" {
+        repeat:Loop:number of\n**Real PSD**;
+            :Take the sum of
+            Velocity PSD;
+            note:at every Real PSD
+        repeat while(end)
 
-repeat
-    :act1;
-    :act2;
+        repeat:Loop:number of\n**Real PSD**;
+            :get PSD of 
+            **i+1,i+2,i-1,i-2** in **Real Space**;
+            
+            if(Cross the border?) then(yes)
+            :Apply boundary conditions;
+            endif
+
+            :Calculate v*∂f/∂x 
+            by Umeda method;
+            repeat:Loop:number of\n**Velocity PSD**
+                :update PSD 
+                Δt/2*v*∂f/∂x;
+            repeat while(end)
+
+        repeat while(end)
+    }
 repeat while (end)
 
 
--->(*)
+stop
 
 @end uml
