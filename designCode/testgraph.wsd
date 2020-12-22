@@ -1,0 +1,23 @@
+@startuml testgraph
+class User{
+    username
+    password
+    +sign_in()
+}
+
+class Group {
+    name
+}
+
+class Member {
+    roles
+}
+
+User .. Member
+Group .. Member
+
+note right of User
+add description here
+end note
+
+@enduml
