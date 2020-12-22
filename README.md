@@ -14,6 +14,7 @@ easy coding!
 (something for git)
 
 ## Install List
+Attention! if you use WSL2, you should install all software  WSL2.
 ### CMake
   for CMake
 ### compiler 
