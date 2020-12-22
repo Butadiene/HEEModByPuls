@@ -1,6 +1,14 @@
 # HEEModByPuls
 High-Energy Electrons Modulated By geomagnetic Pulsations
 
+## Prohibit push to master
+You should put pre-push file(like pre-push file in pre-push_template directry) in ./git/hooks
+
+and do the following
+```
+chmod 775 pre-push
+```
+
 ## VSCode Extensions
 ### CMake
 for CMake
