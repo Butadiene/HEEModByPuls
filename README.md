@@ -25,7 +25,7 @@ for PlantUML on VSCode
 (something for git)
 
 ## Install List
-Attention! if you use WSL2, you should install all software  WSL2.
+Attention! if you use WSL2, you should install all software in WSL2.
 ### CMake
   for CMake
 ### compiler 
