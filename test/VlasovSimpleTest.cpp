@@ -1,5 +1,8 @@
 #include <iostream>
+#include "../include/MathCommon.hpp"
 
 int main(){
-    std::cout << "test" << std::endl;
+    double a = mathcommon::PI;
+
+    std::cout << a << std::endl;
 }
