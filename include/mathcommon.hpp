@@ -1,3 +1,7 @@
+//include guard
+#ifndef INCLUDE_MATHCOMMON
+#define INCLUDE_MATHCOMMON 
+
 namespace mathcommon {
     // Mathematical constant
     // These are Global constant
@@ -8,3 +12,4 @@ namespace mathcommon {
 
 
 }
+#endif
