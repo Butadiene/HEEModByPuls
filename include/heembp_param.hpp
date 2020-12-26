@@ -1,8 +1,8 @@
 //include guard
-#ifndef INCLUDE_HEEMBPPARAM
-#define INCLUCE_HEEMBPPARAM
+#ifndef HEEMBP_INCLUDE_HEEMBP_PARAM
+#define HEEMBP_INCLUCE_HEEMBP_PARAM
 
-namespace heembpparam {
+namespace heembp_param {
     //This project(HEEModByPuls)'s Parameter without COORDINATE PARAMETER
     // if you want to customaize Coordinate parameter you should look at "/include/coordinatespec.hpp"
     // These are Global constant

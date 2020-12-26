@@ -1,8 +1,8 @@
 #include <iostream>
-#include "../include/math_common.hpp"
+#include "../include/coordinate_spec.hpp"
 
 int main(){
-    double a = mathcommon::PI;
+    double a =coordinate_spec::kRealDimensionNum;
 
     std::cout << a*2. << std::endl;
 }

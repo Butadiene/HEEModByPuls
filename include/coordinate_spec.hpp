@@ -1,9 +1,9 @@
 //include guard
-#ifndef INCLUDE_COORDINATESPEC 
-#define INCLUDE_COORDINATESPEC
+#ifndef HEEMBP_INCLUDE_COORDINATE_SPEC 
+#define HEEMBP_INCLUDE_COORDINATE_SPEC
 
 #include <cstdint>
-namespace coordinatespec {
+namespace coordinate_spec {
 /*
     model description
     example: Real Space is 3D and Velocity Space is 3D
@@ -33,6 +33,6 @@ namespace coordinatespec {
     constexpr std::int_fast8_t kVelocityDimensionNum = 2;
     constexpr std::int_fast16_t kRealGridNum[kRealDimensionNum] ={128}; 
     constexpr std::int_fast16_t kVelocityGridNum[kVelocityDimensionNum]={32,32};
-    
+
 }
 #endif

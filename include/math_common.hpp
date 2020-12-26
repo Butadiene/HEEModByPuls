@@ -1,6 +1,6 @@
 //include guard
-#ifndef INCLUDE_MATHCOMMON
-#define INCLUDE_MATHCOMMON 
+#ifndef HEEMBP_INCLUDE_MATH_COMMON
+#define HEEMBP_INCLUDE_MATH_COMMON 
 
 namespace mathcommon {
     // Mathematical constant
