@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/MathCommon.hpp"
+#include "../include/mathcommon.hpp"
 
 int main(){
     double a = mathcommon::PI;

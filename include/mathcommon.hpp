@@ -1,4 +1,5 @@
 namespace mathcommon {
+    // Mathematical constant
     // These are Global constant
     // Don't use variables! 
     // Don't use Pointer type constant
