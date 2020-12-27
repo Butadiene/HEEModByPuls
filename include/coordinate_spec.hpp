@@ -3,6 +3,7 @@
 #define HEEMBP_INCLUDE_COORDINATE_SPEC
 
 #include <cstdint>
+#include <numeric>
 namespace coordinate_spec {
 /*
     model description
@@ -33,13 +34,15 @@ namespace coordinate_spec {
     constexpr std::int_fast8_t kVelocityDimensionNum = 2;
     constexpr std::int_fast16_t kRealGridNum[kRealDimensionNum] ={128}; 
     constexpr std::int_fast16_t kVelocityGridNum[kVelocityDimensionNum]={32,32};
-    /*
+    
     namespace {
 
     }
-    constexpr std::int_fast64_t kTotalGridNum{
-
-    }
+    /*
+    constexpr std::int_fast64_t kTotalGridNum = std::accumulate(kRealGridNum[0], kRealGridNum[kRealDimensionNum], 1, [](int acc, int i) {
+    return acc * i;
+    
+    });
     */
 }
 #endif
