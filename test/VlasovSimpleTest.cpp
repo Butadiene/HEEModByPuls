@@ -11,9 +11,18 @@ public:
   { return value_; }
 };
 
+class CoordinateSpec{
+    // テストコードで書く、格子設定クラスの試作　
+    //今回のシミュレーション用を愚直に書くが、将来的には格子設定クラスのInterfaceを用意したい
+    std::int_fast8_t realDimensionNum;
+    std::int_fast8_t velocityDimensionNum;
+
+};
+
 int main()
 {
-  constexpr Integer x = 3;
+  const int c = 3;
+  constexpr Integer x = c;
   static_assert(x.get() == 3, "x value must be 3");
 }
 
