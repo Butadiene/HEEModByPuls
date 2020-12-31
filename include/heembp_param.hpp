@@ -11,7 +11,6 @@ namespace heembp_param {
     // Don't use variables! 
     // Don't use Pointer type constant
 
-    constexpr double PI = 3.1415926535;
     constexpr std::int_fast8_t kRealDimensionNum = 1;
     constexpr std::int_fast8_t kVelocityDimensionNum = 2;
     constexpr std::int_fast16_t kRealGridNum[kRealDimensionNum] ={128}; 

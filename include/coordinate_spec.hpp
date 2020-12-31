@@ -3,7 +3,7 @@
 #define HEEMBP_INCLUDE_COORDINATE_SPEC
 
 #include <cstdint>
-
+#include "../include/heembp_param.hpp"
 namespace coordinate_spec {
 /*
     model description
@@ -33,10 +33,10 @@ namespace coordinate_spec {
     class CoordinateSpec{
     // テストコードで書く、格子設定クラスの試作　
     //今回のシミュレーション用を愚直に書くが、将来的には格子設定クラスのInterfaceを用意したい
-        static const std::int_fast8_t realDimensionNum = kRealDimensionNum;
-        static const std::int_fast8_t velocityDimensionNum = kVelocityDimensionNum;
-        static const std::int_fast16_t realGridNum[realDimensionNum];
-        static const std::int_fast16_t velocityGridNum[kVelocityDimensionNum];
+        std::int_fast8_t realDimensionNum;
+        std::int_fast8_t velocityDimensionNum;
+        std::int_fast16_t realGridNum[];
+        std::int_fast16_t velocityGridNum[];
         std::int_fast32_t totalGridNum;
         std::int_fast32_t calcTotalGridNum();
         
