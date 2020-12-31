@@ -3,7 +3,7 @@
 #define HEEMBP_INCLUDE_COORDINATE_SPEC
 
 #include <cstdint>
-#include <numeric>
+
 namespace coordinate_spec {
 /*
     model description
@@ -30,19 +30,23 @@ namespace coordinate_spec {
 
 
 */
-    constexpr std::int_fast8_t kRealDimensionNum = 1;
-    constexpr std::int_fast8_t kVelocityDimensionNum = 2;
-    constexpr std::int_fast16_t kRealGridNum[kRealDimensionNum] ={128}; 
-    constexpr std::int_fast16_t kVelocityGridNum[kVelocityDimensionNum]={32,32};
-    
-    namespace {
+    class CoordinateSpec{
+    // テストコードで書く、格子設定クラスの試作　
+    //今回のシミュレーション用を愚直に書くが、将来的には格子設定クラスのInterfaceを用意したい
+        static const std::int_fast8_t realDimensionNum = kRealDimensionNum;
+        static const std::int_fast8_t velocityDimensionNum = kVelocityDimensionNum;
+        static const std::int_fast16_t realGridNum[realDimensionNum];
+        static const std::int_fast16_t velocityGridNum[kVelocityDimensionNum];
+        std::int_fast32_t totalGridNum;
+        std::int_fast32_t calcTotalGridNum();
+        
+    public:
+        CoordinateSpec();
 
-    }
-    /*
-    constexpr std::int_fast64_t kTotalGridNum = std::accumulate(kRealGridNum[0], kRealGridNum[kRealDimensionNum], 1, [](int acc, int i) {
-    return acc * i;
+        
+
+    };
     
-    });
-    */
+
 }
 #endif

@@ -1,6 +1,6 @@
 add_library(HeeModandGeoMagPuls
     SHARED
-        Account.cpp
+        coordinate_spec.cpp
 )
 
 target_include_directories(HeeModandGeoMagPuls
