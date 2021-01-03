@@ -3,8 +3,9 @@
 #define HEEMBP_INCLUDE_COORDINATE_SPEC
 
 #include <cstdint>
+#include <vector>
 #include "../include/heembp_param.hpp"
-namespace coordinate_spec {
+
 /*
     model description
     example: Real Space is 3D and Velocity Space is 3D
@@ -30,20 +31,26 @@ namespace coordinate_spec {
 
 
 */
+
+namespace coordinate_spec {
+
+    // Coordinate Specification
     class CoordinateSpec{
-    // テストコードで書く、格子設定クラスの試作　
-    //今回のシミュレーション用を愚直に書くが、将来的には格子設定クラスのInterfaceを用意したい
-        std::int_fast8_t realDimensionNum;
-        std::int_fast8_t velocityDimensionNum;
-        std::int_fast16_t realGridNum[];
-        std::int_fast16_t velocityGridNum[];
-        std::int_fast32_t totalGridNum;
-        std::int_fast32_t calcTotalGridNum();
         
+        std::int_fast32_t real_dimension_num_;
+        std::int_fast32_t velocity_dimension_num_;
+        std::int_fast32_t total_grid_num_;
+
+        std::vector<std::int_fast32_t> real_each_grid_num_;
+        std::vector<std::int_fast32_t> velocity_each_grid_num_;
+
     public:
         CoordinateSpec();
-
-        
+        std::int_fast32_t get_real_dimension_num_();
+        std::int_fast32_t get_velocity_dimension_num_();
+        std::int_fast32_t get_total_grid_num_();
+        std::vector<std::int_fast32_t> get_real_each_grid_num_();
+        std::vector<std::int_fast32_t> get_velocity_each_grid_num_();
 
     };
     
