@@ -3,6 +3,7 @@ add_library(HeeModandGeoMagPuls
         coordinate_spec.cpp
         heembp_param.cpp
         manage_data_in_memory_array.cpp
+        initialize_psd.cpp
 )
 
 target_include_directories(HeeModandGeoMagPuls
