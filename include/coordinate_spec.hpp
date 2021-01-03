@@ -5,7 +5,8 @@
 #include <cstdint>
 #include <vector>
 #include "../include/heembp_param.hpp"
-
+namespace heemodbypuls{
+namespace coordinate_spec {
 /*
     model description
     example: Real Space is 3D and Velocity Space is 3D
@@ -32,28 +33,29 @@
 
 */
 
-namespace coordinate_spec {
 
-    // Coordinate Specification
-    class CoordinateSpec{
-        
-        std::int_fast32_t real_dimension_num_;
-        std::int_fast32_t velocity_dimension_num_;
-        std::int_fast32_t total_grid_num_;
 
-        std::vector<std::int_fast32_t> real_each_grid_num_;
-        std::vector<std::int_fast32_t> velocity_each_grid_num_;
-
-    public:
-        CoordinateSpec();
-        std::int_fast32_t get_real_dimension_num_();
-        std::int_fast32_t get_velocity_dimension_num_();
-        std::int_fast32_t get_total_grid_num_();
-        std::vector<std::int_fast32_t> get_real_each_grid_num_();
-        std::vector<std::int_fast32_t> get_velocity_each_grid_num_();
-
-    };
+// Coordinate Specification
+class CoordinateSpec{
     
+    std::int_fast32_t real_dimension_num_;
+    std::int_fast32_t velocity_dimension_num_;
+    std::int_fast32_t total_grid_num_;
 
+    std::vector<std::int_fast32_t> real_each_grid_num_;
+    std::vector<std::int_fast32_t> velocity_each_grid_num_;
+
+public:
+    CoordinateSpec();
+    std::int_fast32_t get_real_dimension_num_();
+    std::int_fast32_t get_velocity_dimension_num_();
+    std::int_fast32_t get_total_grid_num_();
+    std::vector<std::int_fast32_t> get_real_each_grid_num_();
+    std::vector<std::int_fast32_t> get_velocity_each_grid_num_();
+
+};
+
+
+}
 }
 #endif
