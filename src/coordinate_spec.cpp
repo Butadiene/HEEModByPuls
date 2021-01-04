@@ -21,23 +21,23 @@ CoordinateSpec::CoordinateSpec()
 
 }
 
-std::int_fast32_t CoordinateSpec::get_real_dimension_num_(){
+std::int_fast32_t CoordinateSpec::get_real_dimension_num_() const{
     return real_dimension_num_;
 }
 
-std::int_fast32_t CoordinateSpec::get_velocity_dimension_num_(){
+std::int_fast32_t CoordinateSpec::get_velocity_dimension_num_() const{
     return velocity_dimension_num_;
 }
 
-std::int_fast32_t CoordinateSpec::get_total_grid_num_(){
+std::int_fast32_t CoordinateSpec::get_total_grid_num_() const{
     return total_grid_num_;
 }
 
-std::vector<std::int_fast32_t> CoordinateSpec::get_real_each_grid_num_(){
+std::vector<std::int_fast32_t> CoordinateSpec::get_real_each_grid_num_() const{
     return real_each_grid_num_;
 }
 
-std::vector<std::int_fast32_t> CoordinateSpec::get_velocity_each_grid_num_(){
+std::vector<std::int_fast32_t> CoordinateSpec::get_velocity_each_grid_num_() const{
     return velocity_each_grid_num_;
 }
 

@@ -24,13 +24,13 @@ public:
 
     void TestAssignmentToDataArray();
 
-    void TestWriteOutDataArrayToTerminal();
+    void TestWriteOutDataArrayToTerminal() const;
     
-    std::int_fast32_t get_buffer_num_();
+    std::int_fast32_t get_buffer_num_() const;
 
-    std::int_fast32_t get_data_in_memory_elements_num_();
+    std::int_fast32_t get_data_in_memory_elements_num_() const;
 
-    double** get_data_in_memory_array_();
+    double** get_data_in_memory_array_() const;
 
 
 

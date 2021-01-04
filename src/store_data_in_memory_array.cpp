@@ -40,7 +40,7 @@ namespace store_data_in_memory_array{
         }
     }
 
-    void StoreDataInMemoryArray::TestWriteOutDataArrayToTerminal(){
+    void StoreDataInMemoryArray::TestWriteOutDataArrayToTerminal() const {
         for(int i = 0;i<data_in_memory_elements_num_;i++){
             for(int j = 0;j<buffer_num_;j++){
                 std::cout<<data_in_memory_array_[i][j];
@@ -49,15 +49,15 @@ namespace store_data_in_memory_array{
         }
     }
 
-    std::int_fast32_t StoreDataInMemoryArray::get_buffer_num_(){
+    std::int_fast32_t StoreDataInMemoryArray::get_buffer_num_() const {
         return buffer_num_;
     }
 
-    std::int_fast32_t StoreDataInMemoryArray::get_data_in_memory_elements_num_(){
+    std::int_fast32_t StoreDataInMemoryArray::get_data_in_memory_elements_num_() const {
         return data_in_memory_elements_num_;
     }
     
-    double** StoreDataInMemoryArray::get_data_in_memory_array_(){
+    double** StoreDataInMemoryArray::get_data_in_memory_array_() const  {
         return data_in_memory_array_;
     }
 

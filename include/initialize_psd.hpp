@@ -8,10 +8,12 @@ namespace heemodbypuls{
 namespace initialize_psd{
 
 class InitializePsd{
-
+    const store_data_in_memory_array::StoreDataInMemoryArray& store_data_in_memory_array_;
 
 public:
-    explicit InitializePsd(int a);
+    explicit InitializePsd(const store_data_in_memory_array::StoreDataInMemoryArray& in_store_data_in_memory_array);
+
+    void TestInitializeBy0and1();
 
 };
 

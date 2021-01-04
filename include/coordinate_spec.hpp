@@ -47,11 +47,11 @@ class CoordinateSpec{
 
 public:
     CoordinateSpec();
-    std::int_fast32_t get_real_dimension_num_();
-    std::int_fast32_t get_velocity_dimension_num_();
-    std::int_fast32_t get_total_grid_num_();
-    std::vector<std::int_fast32_t> get_real_each_grid_num_();
-    std::vector<std::int_fast32_t> get_velocity_each_grid_num_();
+    std::int_fast32_t get_real_dimension_num_() const;
+    std::int_fast32_t get_velocity_dimension_num_() const;
+    std::int_fast32_t get_total_grid_num_() const;
+    std::vector<std::int_fast32_t> get_real_each_grid_num_() const;
+    std::vector<std::int_fast32_t> get_velocity_each_grid_num_()const;
 
 };
 
