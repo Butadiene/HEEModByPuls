@@ -10,7 +10,8 @@ namespace heembp_param {
 
 extern const std::vector<std::int_fast32_t> kRealEachGridNum; 
 extern const std::vector<std::int_fast32_t> kVelocityEachGridNum;
-
+extern const std::int_fast32_t kPsdBufferNum;
+extern const std::int_fast32_t kFieldBufferNum;
 
 }
 }

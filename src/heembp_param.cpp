@@ -5,7 +5,8 @@ namespace heembp_param {
 
 const std::vector<std::int_fast32_t> kRealEachGridNum{128}; 
 const std::vector<std::int_fast32_t> kVelocityEachGridNum={32,32};
-
+const std::int_fast32_t kPsdBufferNum = 2;
+const std::int_fast32_t kFieldBufferNum = 1;
 
 }  
 }

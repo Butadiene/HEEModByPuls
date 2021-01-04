@@ -40,6 +40,8 @@ class CoordinateSpec{
     
     std::int_fast32_t real_dimension_num_;
     std::int_fast32_t velocity_dimension_num_;
+    std::int_fast32_t real_grid_num_;
+    std::int_fast32_t velocity_grid_num_;
     std::int_fast32_t total_grid_num_;
 
     std::vector<std::int_fast32_t> real_each_grid_num_;
@@ -47,11 +49,13 @@ class CoordinateSpec{
 
 public:
     CoordinateSpec();
-    std::int_fast32_t get_real_dimension_num_() const;
-    std::int_fast32_t get_velocity_dimension_num_() const;
-    std::int_fast32_t get_total_grid_num_() const;
-    std::vector<std::int_fast32_t> get_real_each_grid_num_() const;
-    std::vector<std::int_fast32_t> get_velocity_each_grid_num_()const;
+    std::int_fast32_t get_real_dimension_num_() const {return real_dimension_num_;}
+    std::int_fast32_t get_velocity_dimension_num_() const {return velocity_dimension_num_;}
+    std::int_fast32_t get_real_grid_num_() const {return real_grid_num_;}
+    std::int_fast32_t get_velocity_grid_num_() const {return velocity_grid_num_;}
+    std::int_fast32_t get_total_grid_num_() const {return total_grid_num_;}
+    std::vector<std::int_fast32_t> get_real_each_grid_num_() const {return real_each_grid_num_;}
+    std::vector<std::int_fast32_t> get_velocity_each_grid_num_()const {return velocity_each_grid_num_;}
 
 };
 
