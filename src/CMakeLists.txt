@@ -2,7 +2,7 @@ add_library(HeeModandGeoMagPuls
     SHARED
         coordinate_spec.cpp
         heembp_param.cpp
-        manage_data_in_memory_array.cpp
+        store_data_in_memory_array.cpp
         initialize_psd.cpp
 )
 
