@@ -10,10 +10,8 @@ namespace coordinate_spec {
 /*
     model description
     example: Real Space is 3D and Velocity Space is 3D
-    F:Real Space density(integrate velocity space)
     f:Phase Space density
     array model: 
-    F(x0[0],x1[0],x2[0]),
     f(x0[0],x1[0],x2[0],v0[0],v1[0],v2[0]),
     f(x0[0],x1[0],x2[0],v0[0],v1[0],v2[1]),
     f(x0[0],x1[0],x2[0],v0[0],v1[0],v2[2]),
@@ -25,7 +23,6 @@ namespace coordinate_spec {
     f(x0[0],x1[0],x2[0],v0[0],v1[2],v2[0]),
     ...
     f(x0[0],x1[0],x2[0],v0[maxv0],v1[maxv1],v2[maxv2]),
-    F(x0[0],x1[0],x2[1]),
     f(x0[i],x1[0],x2[1],v0[0],v1[0],v2[0]),
     ...
     f(x0[maxx0],x1[maxx1],x2[maxx2],v0[maxv0],v1[maxv1],v2[maxv2]) 

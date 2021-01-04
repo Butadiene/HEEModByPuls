@@ -19,7 +19,10 @@ class StoreDataInMemoryArray{
 
 
 public:
-    StoreDataInMemoryArray(std::int_fast32_t require_elements_num,std::int_fast32_t in_buffer_num);
+    StoreDataInMemoryArray(
+        std::int_fast32_t require_elements_num,
+        std::int_fast32_t in_buffer_num);
+        
     ~ StoreDataInMemoryArray();
 
     void TestAssignmentToDataArray();

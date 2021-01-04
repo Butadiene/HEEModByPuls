@@ -9,11 +9,13 @@ namespace heemodbypuls{
 namespace initialize_field{
 
 class InitializeField{
-    const store_data_in_memory_array::StoreDataInMemoryArray& store_data_in_memory_array_;
+    const store_data_in_memory_array::StoreDataInMemoryArray& field_store_data_in_memory_array_;
     const coordinate_spec::CoordinateSpec& coordinate_spec_;
 
 public:
-    explicit InitializeField(const store_data_in_memory_array::StoreDataInMemoryArray& in_store_data_in_memory_array,const coordinate_spec::CoordinateSpec& in_coordinate_spec);
+    explicit InitializeField(
+        const store_data_in_memory_array::StoreDataInMemoryArray& in_field_store_data_in_memory_array,
+        const coordinate_spec::CoordinateSpec& in_coordinate_spec);
 
      void TestInitializeBy0and1();
 

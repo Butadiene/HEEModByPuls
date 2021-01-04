@@ -6,7 +6,10 @@
 namespace heemodbypuls{
 namespace store_data_in_memory_array{
 
-    StoreDataInMemoryArray::StoreDataInMemoryArray(std::int_fast32_t require_elements_num,std::int_fast32_t in_buffer_num)
+
+    StoreDataInMemoryArray::StoreDataInMemoryArray(
+        std::int_fast32_t require_elements_num,
+        std::int_fast32_t in_buffer_num)
     :buffer_num_(in_buffer_num)
     {
         data_in_memory_elements_num_ = require_elements_num;
