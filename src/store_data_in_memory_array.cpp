@@ -40,7 +40,7 @@ namespace store_data_in_memory_array{
     void StoreDataInMemoryArray::TestAssignmentToDataArray(){
         for(int i = 0;i<data_in_memory_elements_num_;i++){
             for(int j = 0;j<buffer_num_;j++){
-                data_in_memory_array_[i][j] = double(i*(j+1));
+                data_in_memory_array_[i][j] = 1.0;//double(i*(j+1));
             }
         }
     }

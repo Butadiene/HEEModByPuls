@@ -10,7 +10,8 @@ namespace manage_psd_data_on_coordinate{
 
 class ManagePsdDataOnCoordinate{
 
-    //std::int_fast32_t bufferarray
+    std::int_fast32_t num_bufferarray;
+    std::int_fast32_t num_calcarray;
 
     const store_data_in_memory_array::StoreDataInMemoryArray& psd_store_data_in_memory_array_;
     const store_data_in_memory_array::StoreDataInMemoryArray& real_psd_by_integrate_velocity_psd_store_data_in_memory_array_;
@@ -22,6 +23,7 @@ public:
         const store_data_in_memory_array::StoreDataInMemoryArray& in_real_psd_by_integrate_velocity_psd_store_data_in_memory_array,
         const coordinate_spec::CoordinateSpec& in_coordinate_spec);
 
+    void UpdateBufferParam();
     void IntegrateVelocityPsdForRealPsd();
 
 };

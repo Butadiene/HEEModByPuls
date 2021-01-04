@@ -5,6 +5,7 @@ add_library(HeeModandGeoMagPuls
         store_data_in_memory_array.cpp
         initialize_psd.cpp
         initialize_field.cpp
+        manage_psd_data_on_coordinate.cpp
 )
 
 target_include_directories(HeeModandGeoMagPuls
