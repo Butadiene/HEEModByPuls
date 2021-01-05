@@ -44,6 +44,8 @@ class CoordinateSpec{
     std::vector<std::int_fast32_t> real_each_grid_num_;
     std::vector<std::int_fast32_t> velocity_each_grid_num_;
 
+    bool dimensional_integirity_check_;
+
 public:
     CoordinateSpec();
     std::int_fast32_t get_real_dimension_num_() const {return real_dimension_num_;}
@@ -53,6 +55,17 @@ public:
     std::int_fast32_t get_total_grid_num_() const {return total_grid_num_;}
     std::vector<std::int_fast32_t> get_real_each_grid_num_() const {return real_each_grid_num_;}
     std::vector<std::int_fast32_t> get_velocity_each_grid_num_()const {return velocity_each_grid_num_;}
+
+    void set_DimensionIntegrityTest(bool execute_test){
+        dimensional_integirity_check_ = execute_test;
+    };
+
+    void DimensionIntegrityTest(std::vector<int_fast32_t> num_focus_elements,std::vector<int_fast32_t> dimensional_define) const;//if do set_DimensionIntegrityTest(false), this method don't work
+
+    std::int_fast32_t GetNumArrayFromCoordinateOnRealPsdArray (std::vector<int_fast32_t> num_focus_real_elements) const;
+
+    std::int_fast32_t GetNumArrayFromCoordinateOnAllPsdArray(std::vector<int_fast32_t> num_focus_real_elements,std::vector<int_fast32_t> num_focus_velocity_elements) const;
+
 
 };
 

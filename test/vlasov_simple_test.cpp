@@ -43,14 +43,20 @@ int main(){
 
   //manage_psd_data.IntegrateVelocityPsdForRealPsd();
 
-  //real_psd_by_integrate_velocity_psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+  std::vector<int_fast32_t> test_real_array {7,7,7};
+  std::vector<int_fast32_t> test_velocity_array {2,2,2};
+
+  manage_psd_data.SetVelocityPsd(test_real_array,test_velocity_array,7777);
+
+  psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
 
-  std::vector<int_fast32_t> test_real_array {3,6,3};
-  std::vector<int_fast32_t> test_velocity_array {2,1,2};
 
-  double for_out = manage_psd_data.GetVelocityPsd(test_real_array,test_velocity_array);
-  std::cout<<for_out<<"\n";
+
+
+
+
+
 
   //for field
   std::int_fast32_t array_elements_num_for_field 
