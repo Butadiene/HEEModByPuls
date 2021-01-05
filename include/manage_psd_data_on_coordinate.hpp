@@ -26,6 +26,9 @@ public:
     void UpdateBufferParam();
     void IntegrateVelocityPsdForRealPsd();
 
+    //double 
+    // apply boundary condition
+
 };
 
 
