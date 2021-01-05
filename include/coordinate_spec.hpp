@@ -6,7 +6,7 @@
 #include <vector>
 #include "../include/heembp_param.hpp"
 namespace heemodbypuls{
-namespace coordinate_spec {
+namespace coordinate_spec{
 /*
     model description
     example: Real Space is 3D and Velocity Space is 3D
