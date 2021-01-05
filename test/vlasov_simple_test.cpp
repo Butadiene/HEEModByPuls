@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 #include "../include/coordinate_spec.hpp"
 #include "../include/store_data_in_memory_array.hpp"
 #include "../include/initialize_psd.hpp"
@@ -60,7 +61,9 @@ int main(){
 
   //for field
   std::int_fast32_t array_elements_num_for_field 
-        = coordinate_spec.get_real_dimension_num_()*coordinate_spec.get_real_grid_num_();
+        = coordinate_spec.get_real_grid_num_()*std::accumulate(
+          heembp_param::kFieldDimensionEachElemntsNum.begin(),
+          heembp_param::kFieldDimensionEachElemntsNum.end(),0);
 
   store_data_in_memory_array::StoreDataInMemoryArray field_store_data_in_memory_array(
     array_elements_num_for_field,
