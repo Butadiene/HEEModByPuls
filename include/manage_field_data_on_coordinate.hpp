@@ -31,9 +31,9 @@ public:
 
     std::vector<std::int_fast32_t> GetFieldValue (std::int_fast32_t num_field_identify,std::vector<std::int_fast32_t> num_focus_real_elements) const;
 
-    void SetFieldValue (std::int_fast32_t num_field_identify,std::vector<std::int_fast32_t> num_focus_real_elements,std::vector<int_fast32_t> set_value);
+    void SetFieldValue (std::int_fast32_t num_field_identify,std::vector<std::int_fast32_t> num_focus_real_elements,std::vector<int_fast32_t> set_value)const;
 
-    coordinate_spec::CoordinateSpec get_coordinate_spec_(){
+    coordinate_spec::CoordinateSpec get_coordinate_spec_()const{
         return coordinate_spec_;
     }
 

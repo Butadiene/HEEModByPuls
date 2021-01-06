@@ -47,6 +47,8 @@ VlasovSolver o-- ManageFieldDataOnCoordinate
 
 VlasovSolver o-- ApplyBoundaryCondition
 
+ApplyBoundaryCondition -- ManagePsdDataOnCoordinate
+
 ManagePsdDataOnCoordinate o-- "2" StoreDataInMemory : have psd and real psd >
 ManageFieldDataOnCoordinate o-- "1" StoreDataInMemory
 

@@ -42,12 +42,12 @@ public:
 
     double GetVelocityPsd(std::vector<int_fast32_t> num_focus_real_elements,std::vector<int_fast32_t> num_focus_velocity_elements) const;
 
-    void SetRealPsd(std::vector<int_fast32_t> num_focus_real_elements,double set_val);
+    void SetRealPsd(std::vector<int_fast32_t> num_focus_real_elements,double set_val)const;
 
     void SetVelocityPsd(std::vector<int_fast32_t> num_focus_real_elements,
-    std::vector<int_fast32_t> num_focus_velocity_elements,double set_val);
+    std::vector<int_fast32_t> num_focus_velocity_elements,double set_val)const;
 
-     coordinate_spec::CoordinateSpec get_coordinate_spec_(){
+     coordinate_spec::CoordinateSpec get_coordinate_spec_() const {
         return coordinate_spec_;
     }
 

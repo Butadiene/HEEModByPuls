@@ -81,7 +81,7 @@ namespace manage_field_data_on_coordinate{
     void ManageFieldDataOnCoordinate::SetFieldValue (
         std::int_fast32_t num_field_identify,
         std::vector<std::int_fast32_t> num_focus_real_elements,
-        std::vector<int_fast32_t> set_value)
+        std::vector<int_fast32_t> set_value) const
     {
 
 

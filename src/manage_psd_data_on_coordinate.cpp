@@ -127,7 +127,7 @@ namespace manage_psd_data_on_coordinate{
 
     }
 
-    void ManagePsdDataOnCoordinate::SetRealPsd(std::vector<int_fast32_t> num_focus_real_elements,double set_val){
+    void ManagePsdDataOnCoordinate::SetRealPsd(std::vector<int_fast32_t> num_focus_real_elements,double set_val)const {
 
         std::int_fast32_t num_psd_need_on_array = GetNumArrayFromCoordinateOnRealPsdArray(num_focus_real_elements);
 
@@ -137,7 +137,7 @@ namespace manage_psd_data_on_coordinate{
     }
 
     void ManagePsdDataOnCoordinate::SetVelocityPsd(std::vector<int_fast32_t> num_focus_real_elements,
-    std::vector<int_fast32_t> num_focus_velocity_elements,double set_val){
+    std::vector<int_fast32_t> num_focus_velocity_elements,double set_val)const{
 
         std::int_fast32_t num_psd_need_on_array = GetNumArrayFromCoordinateOnAllPsdArray(num_focus_real_elements,num_focus_velocity_elements);
 
