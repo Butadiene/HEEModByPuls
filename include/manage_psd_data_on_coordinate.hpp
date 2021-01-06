@@ -47,6 +47,10 @@ public:
     void SetVelocityPsd(std::vector<int_fast32_t> num_focus_real_elements,
     std::vector<int_fast32_t> num_focus_velocity_elements,double set_val);
 
+     coordinate_spec::CoordinateSpec get_coordinate_spec_(){
+        return coordinate_spec_;
+    }
+
 
 
 };
