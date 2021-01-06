@@ -59,7 +59,7 @@ int main(){
 
   //field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
- */
+ 
 
 
   std::cout<< coordinate_spec.get_total_grid_num_() <<"\n";
