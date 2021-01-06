@@ -1,0 +1,58 @@
+@startuml class_design_outline
+
+class ManagePsdDataOnCoordinate{
+    + GetFieldValue(real_coordinate)
+    + SetFieldValue(real_coordinate,value)
+}
+
+class ManageFieldDataOnCoordinate{
+    + GetRealPsd(real_coordinate)
+    + SetRealPsd(real_coordinate,value)
+    + GetVelocityPsd(real_coordinate,velocity_coordinate)
+    + SetVelocityPsd(real_coordinate,velocity_coordinate,value)
+
+}
+
+class StoreDataInMemory{
+    
+}
+
+class CoordinateSpec{
+   
+}
+
+class InitializePsd{
+
+}
+
+class InitializeField{
+
+}
+
+class VlasovSolver{
+
+}
+
+class ApplyBoundaryCondition{
+    
+}
+
+VlasovSolver o-- ManagePsdDataOnCoordinate
+VlasovSolver o-- ManageFieldDataOnCoordinate
+
+VlasovSolver o- ApplyBoundaryCondition
+
+ManagePsdDataOnCoordinate o-- "2" StoreDataInMemory : have psd and real psd >
+ManageFieldDataOnCoordinate o-- "1" StoreDataInMemory
+
+ManagePsdDataOnCoordinate o-- "1" CoordinateSpec 
+ManageFieldDataOnCoordinate o-- "1" CoordinateSpec
+
+InitializeField o-- "1"StoreDataInMemory
+InitializePsd o-- "1"StoreDataInMemory
+
+hide members
+show ManageFieldDataOnCoordinate method
+show ManagePsdDataOnCoordinate method
+
+@enduml
