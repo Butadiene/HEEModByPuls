@@ -45,7 +45,7 @@ class ApplyBoundaryCondition{
 VlasovSolver o-- ManagePsdDataOnCoordinate
 VlasovSolver o-- ManageFieldDataOnCoordinate
 
-VlasovSolver o- ApplyBoundaryCondition
+VlasovSolver o-- ApplyBoundaryCondition
 
 ManagePsdDataOnCoordinate o-- "2" StoreDataInMemory : have psd and real psd >
 ManageFieldDataOnCoordinate o-- "1" StoreDataInMemory
@@ -53,8 +53,11 @@ ManageFieldDataOnCoordinate o-- "1" StoreDataInMemory
 ManagePsdDataOnCoordinate o-- "1" CoordinateSpec 
 ManageFieldDataOnCoordinate o-- "1" CoordinateSpec
 
-InitializeField o-- "1"StoreDataInMemory
-InitializePsd o-- "1"StoreDataInMemory
+InitializeField -- "1"ManageFieldDataOnCoordinate
+InitializePsd -- "1"ManagePsdDataOnCoordinate
+
+VlasovSolver o--InitializePsd
+VlasovSolver o--InitializeField
 
 hide members
 show ManageFieldDataOnCoordinate method
