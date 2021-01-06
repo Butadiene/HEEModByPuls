@@ -31,6 +31,10 @@ public:
         num_calcarray_ = (num_calcarray_ + 1) % buffer_num;
     };
     void IntegrateVelocityPsdForRealPsd();
+
+     std::int_fast32_t GetNumArrayFromCoordinateOnRealPsdArray (std::vector<int_fast32_t> num_focus_real_elements) const;
+
+    std::int_fast32_t GetNumArrayFromCoordinateOnAllPsdArray(std::vector<int_fast32_t> num_focus_real_elements,std::vector<int_fast32_t> num_focus_velocity_elements) const;
         
     
 

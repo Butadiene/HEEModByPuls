@@ -5,6 +5,7 @@
 #include "../include/initialize_psd.hpp"
 #include "../include/initialize_field.hpp"
 #include "../include/manage_psd_data_on_coordinate.hpp"
+#include "../include/manage_field_data_on_coordinate.hpp"
 using namespace heemodbypuls;
 
 int main(){
@@ -47,23 +48,14 @@ int main(){
   std::vector<int_fast32_t> test_real_array {7,7,7};
   std::vector<int_fast32_t> test_velocity_array {2,2,2};
 
-  manage_psd_data.SetVelocityPsd(test_real_array,test_velocity_array,7777);
+  manage_psd_data.SetVelocityPsd(test_real_array,test_velocity_array,7776);
 
-  psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+  //psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
-
-
-
-
-
-
-
-
+  
   //for field
   std::int_fast32_t array_elements_num_for_field 
-        = coordinate_spec.get_real_grid_num_()*std::accumulate(
-          heembp_param::kFieldDimensionEachElemntsNum.begin(),
-          heembp_param::kFieldDimensionEachElemntsNum.end(),0);
+        = coordinate_spec.get_real_grid_num_()*coordinate_spec.get_field_all_dimension_num_();
 
   store_data_in_memory_array::StoreDataInMemoryArray field_store_data_in_memory_array(
     array_elements_num_for_field,
@@ -71,10 +63,15 @@ int main(){
 
   initialize_field::InitializeField field_initializer(field_store_data_in_memory_array,coordinate_spec);
 
-  field_initializer.TestInitializeBy0and1();
+  field_initializer.TestInitialize();
 
- // field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+  manage_field_data_on_coordinate::ManageFieldDataOnCoordinate manage_field_data(field_store_data_in_memory_array,coordinate_spec);
 
+  manage_field_data.SetFieldValue(1,test_real_array,test_real_array);
+
+  field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+
+ 
 
 
   std::cout<< coordinate_spec.get_total_grid_num_() <<"\n";
