@@ -3,11 +3,10 @@
 namespace heemodbypuls{
 namespace apply_boundary_condition{
 
-    ApplyBoundaryCondition::ApplyBoundaryCondition(coordinate_spec::CoordinateSpec in_coordinate_spec)
+    ApplyBoundaryCondition::ApplyBoundaryCondition(
+        const coordinate_spec::CoordinateSpec& in_coordinate_spec)
     :coordinate_spec_(in_coordinate_spec)
-    {
-        
-    }
+    {}
 
 
 

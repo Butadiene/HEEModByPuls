@@ -42,11 +42,28 @@ public:
 
     double GetVelocityPsd(std::vector<int_fast32_t> num_focus_real_elements,std::vector<int_fast32_t> num_focus_velocity_elements) const;
 
-    void SetRealPsd(std::vector<int_fast32_t> num_focus_real_elements,double set_val);
+    void SetRealPsd(std::vector<int_fast32_t> num_focus_real_elements,double set_val)const;
 
     void SetVelocityPsd(std::vector<int_fast32_t> num_focus_real_elements,
-    std::vector<int_fast32_t> num_focus_velocity_elements,double set_val);
+    std::vector<int_fast32_t> num_focus_velocity_elements,double set_val)const;
 
+     coordinate_spec::CoordinateSpec get_coordinate_spec_() const {
+        return coordinate_spec_;
+    }
+
+    //caution undifined access
+     double GetValueFromNumArray(std::int_fast32_t num)const{
+        return psd_store_data_in_memory_array_.get_data_in_memory_array_()[num][num_bufferarray_];
+    }
+
+    //caution undifined access
+    void SetValueFromNumArray(std::int_fast32_t num,double value)const{
+        psd_store_data_in_memory_array_.get_data_in_memory_array_()[num][num_calcarray_] = value;
+    }
+
+    std::int_fast32_t GetBufferNum() const {
+        return psd_store_data_in_memory_array_.get_buffer_num_();
+    }
 
 
 };

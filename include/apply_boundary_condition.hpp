@@ -9,26 +9,16 @@ namespace heemodbypuls{
 namespace apply_boundary_condition{
 
 class ApplyBoundaryCondition{
-    coordinate_spec::CoordinateSpec coordinate_spec_;
+
+    const coordinate_spec::CoordinateSpec& coordinate_spec_;
 
 public:
-    ApplyBoundaryCondition(coordinate_spec::CoordinateSpec in_coordinate_spec);
+    explicit ApplyBoundaryCondition( const coordinate_spec::CoordinateSpec& in_coordinate_spec);
+    
     
 
 
-
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 
