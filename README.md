@@ -1,6 +1,11 @@
 # HEEModByPuls
 High-Energy Electrons Modulated By geomagnetic Pulsations
 
+## Style guide
+We use "Google C++ Style Guide"
+ref::https://google.github.io/styleguide/cppguide.html
+(Jp::https://ttsuki.github.io/styleguide/cppguide.ja.html#Doing_Work_in_Constructors)
+
 ## Prohibit push to master
 You should put pre-push file(like pre-push file in pre-push_template directry) in ./git/hooks
 
