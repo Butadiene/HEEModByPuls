@@ -51,6 +51,15 @@ public:
         return coordinate_spec_;
     }
 
+    //caution undifined access
+     double GetValueFromNumArray(std::int_fast32_t num)const{
+        return psd_store_data_in_memory_array_.get_data_in_memory_array_()[num][num_bufferarray_];
+    }
+
+    //caution undifined access
+    void SetValueFromNumArray(std::int_fast32_t num,double value)const{
+        psd_store_data_in_memory_array_.get_data_in_memory_array_()[num][num_calcarray_] = value;
+    }
 
 
 };

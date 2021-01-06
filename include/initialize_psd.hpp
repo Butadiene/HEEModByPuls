@@ -15,7 +15,7 @@ public:
         const manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& in_manage_psd
     );
 
-    void TestInitializeBy0and1();
+    void TestInitialize7();
 
 };
 

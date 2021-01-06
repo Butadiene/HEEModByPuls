@@ -9,13 +9,14 @@ namespace initialize_psd{
     :manage_psd_(in_manage_psd)
     {}
 
-    void InitializePsd::TestInitializeBy0and1(){
+    void InitializePsd::TestInitialize7(){
 
         coordinate_spec::CoordinateSpec coordinate_spec = manage_psd_.get_coordinate_spec_();
-
-       // std::vector<int_fast32_t> num_focus_real_elements()
-
-        //manage_psd_.SetRealPsd();
+        
+        for(int i =0;i<coordinate_spec.get_total_grid_num_();i++){
+            manage_psd_.SetValueFromNumArray(i,7.0);
+        }
+        
        
     }
 
