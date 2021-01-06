@@ -1,15 +1,19 @@
 @startuml class_design_outline
 
 class ManagePsdDataOnCoordinate{
-    + GetFieldValue(real_coordinate)
-    + SetFieldValue(real_coordinate,value)
-}
-
-class ManageFieldDataOnCoordinate{
     + GetRealPsd(real_coordinate)
     + SetRealPsd(real_coordinate,value)
     + GetVelocityPsd(real_coordinate,velocity_coordinate)
     + SetVelocityPsd(real_coordinate,velocity_coordinate,value)
+}
+   
+
+class ManageFieldDataOnCoordinate{
+
+
+    + GetFieldValue(real_coordinate)
+    + SetFieldValue(real_coordinate,value)
+
 
 }
 
