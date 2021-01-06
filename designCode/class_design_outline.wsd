@@ -1,6 +1,7 @@
 @startuml class_design_outline
 
 class ManagePsdDataOnCoordinate{
+    + IntegrateVelocityPsdForRealPsd()
     + GetRealPsd(real_coordinate)
     + SetRealPsd(real_coordinate,value)
     + GetVelocityPsd(real_coordinate,velocity_coordinate)
