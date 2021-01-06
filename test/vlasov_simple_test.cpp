@@ -6,6 +6,7 @@
 #include "../include/initialize_field.hpp"
 #include "../include/manage_psd_data_on_coordinate.hpp"
 #include "../include/manage_field_data_on_coordinate.hpp"
+#include "../include/vlasov_solver.hpp"
 using namespace heemodbypuls;
 
 int main(){
@@ -48,8 +49,6 @@ int main(){
 
 
 
-
-
   
   //for field
   std::int_fast32_t array_elements_num_for_field 
@@ -70,7 +69,10 @@ int main(){
 
   field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
- 
+  apply_boundary_condition::ApplyBoundaryCondition boudary_condition_applyier(coordinate_spec);
+  
+  vlasov_solver::VlasovSolver(manage_psd_data,manage_field_data,boudary_condition_applyier);
+
 
 
   std::cout<< coordinate_spec.get_total_grid_num_() <<"\n";

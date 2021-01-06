@@ -11,7 +11,7 @@ class InitializeField{
     const manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& manage_field_;
 
 public:
-    explicit InitializeField(const manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& in_manage_field_);
+    explicit InitializeField(const manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& in_manage_field);
 
     void TestInitialize9();
 
