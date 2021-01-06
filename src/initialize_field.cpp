@@ -4,24 +4,17 @@ namespace heemodbypuls{
 namespace initialize_field{
 
 
-    InitializeField::InitializeField(
-        const store_data_in_memory_array::StoreDataInMemoryArray& in_field_store_data_in_memory_array,
-        const coordinate_spec::CoordinateSpec& in_coordinate_spec)
-    :field_store_data_in_memory_array_(in_field_store_data_in_memory_array)
-    ,coordinate_spec_(in_coordinate_spec)
+    InitializeField::InitializeField(const manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& in_manage_field)
+    :manage_field_(in_manage_field)
     {}
 
-    void InitializeField::TestInitialize(){
+    void InitializeField::TestInitialize9(){
+        coordinate_spec::CoordinateSpec coordinate_spec = manage_field_.get_coordinate_spec_();
 
-        std::int_fast32_t testval = 0;
-
-        for(int i = 0;i<field_store_data_in_memory_array_.get_data_in_memory_elements_num_();i++){
-            for(int j = 0;j<field_store_data_in_memory_array_.get_buffer_num_();j++){
-                field_store_data_in_memory_array_.get_data_in_memory_array_()[i][j] = testval;
-            }
-            testval += 1;
-            testval = testval%coordinate_spec_.get_field_all_dimension_num_();
+        for(int i = 0;i<coordinate_spec.get_field_all_dimension_num_()*coordinate_spec.get_real_grid_num_();i++){
+            manage_field_.SetValueFromNumArray(i,9.0);
         }
+
     }
 
 

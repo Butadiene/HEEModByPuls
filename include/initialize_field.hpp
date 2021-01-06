@@ -2,22 +2,18 @@
 #ifndef HEEMBP_INCLUDE_INITIALIZE_FIELD
 #define HEEMBP_INCLUDE_INITIALIZE_FIELD
 
-#include "../include/store_data_in_memory_array.hpp"
-#include "../include/coordinate_spec.hpp"
+#include "../include/manage_field_data_on_coordinate.hpp"
 
 namespace heemodbypuls{
 namespace initialize_field{
 
 class InitializeField{
-    const store_data_in_memory_array::StoreDataInMemoryArray& field_store_data_in_memory_array_;
-    const coordinate_spec::CoordinateSpec& coordinate_spec_;
+    const manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& manage_field_;
 
 public:
-    explicit InitializeField(
-        const store_data_in_memory_array::StoreDataInMemoryArray& in_field_store_data_in_memory_array,
-        const coordinate_spec::CoordinateSpec& in_coordinate_spec);
+    explicit InitializeField(const manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& in_manage_field_);
 
-     void TestInitialize();
+    void TestInitialize9();
 
 };
 

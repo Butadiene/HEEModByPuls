@@ -61,6 +61,10 @@ public:
         psd_store_data_in_memory_array_.get_data_in_memory_array_()[num][num_calcarray_] = value;
     }
 
+    std::int_fast32_t GetBufferNum() const {
+        return psd_store_data_in_memory_array_.get_buffer_num_();
+    }
+
 
 };
 

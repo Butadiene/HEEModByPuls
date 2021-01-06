@@ -21,7 +21,7 @@ public:
         const store_data_in_memory_array::StoreDataInMemoryArray& in_field_store_data_in_memory,
         const coordinate_spec::CoordinateSpec& in_coordinate_spec);
 
-        void UpdateBufferParam(){
+    void UpdateBufferParam(){
         std::int_fast32_t buffer_num = field_store_data_in_memory_array_.get_buffer_num_();
         num_bufferarray_ = (num_bufferarray_ + 1 ) % buffer_num,
         num_calcarray_ = (num_calcarray_ + 1) % buffer_num;
@@ -45,6 +45,10 @@ public:
     //caution undifined access
     void SetValueFromNumArray(std::int_fast32_t num,double value)const{
         field_store_data_in_memory_array_.get_data_in_memory_array_()[num][num_calcarray_] = value;
+    }
+
+    std::int_fast32_t GetBufferNum() const {
+        return field_store_data_in_memory_array_.get_buffer_num_();
     }
 
 };

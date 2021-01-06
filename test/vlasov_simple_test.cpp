@@ -36,6 +36,11 @@ int main(){
 
   initialize_psd::InitializePsd psd_initializer(manage_psd_data);
 
+  for(int i = 0;i<manage_psd_data.GetBufferNum();i++){
+    psd_initializer.TestInitialize7();
+    manage_psd_data.UpdateBufferParam();
+    manage_psd_data.IntegrateVelocityPsdForRealPsd();
+  }
 
   psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
@@ -56,8 +61,14 @@ int main(){
 
   manage_field_data_on_coordinate::ManageFieldDataOnCoordinate manage_field_data(field_store_data_in_memory_array,coordinate_spec);
 
+  initialize_field::InitializeField field_initializer(manage_field_data);
 
-  //field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+   for(int i = 0;i<manage_field_data.GetBufferNum();i++){
+    field_initializer.TestInitialize9();
+    manage_field_data.UpdateBufferParam();
+   }
+
+  field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
  
 
