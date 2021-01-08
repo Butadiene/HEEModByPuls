@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 #include "../include/manage_field_data_on_coordinate.hpp"
 
 namespace heemodbypuls{
@@ -20,23 +21,7 @@ namespace manage_field_data_on_coordinate{
         std::vector<std::int_fast32_t> num_focus_real_elements) const
     {
 
-        std::vector<int_fast32_t> real_each_grid_num = coordinate_spec_.get_real_each_grid_num_();
-
-        coordinate_spec_.DimensionIntegrityTest(num_focus_real_elements,real_each_grid_num);
-        coordinate_spec_.FieldDimensionIntegrityTest(num_field_identify);
-
-
-        std::int_fast32_t num_field_need_on_array = 0;
-
-        for(int i = 0;i<num_focus_real_elements.size();i++){
-
-            std::int_fast32_t amount_grid = 1;
-
-            for(int j = 1;j<(num_focus_real_elements.size()-i);j++){
-                amount_grid *= real_each_grid_num[i+j];
-            }
-            num_field_need_on_array += num_focus_real_elements[i] * amount_grid;
-        }
+        std::int_fast32_t num_field_need_on_array = std::inner_product(num_focus_real_elements.begin(),num_focus_real_elements.end(),coordinate_spec_.get_real_grid_in_the_grid_num_().begin(),0.0);
 
         num_field_need_on_array *= coordinate_spec_.get_field_all_dimension_num_();
 
