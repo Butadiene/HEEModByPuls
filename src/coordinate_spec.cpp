@@ -26,6 +26,38 @@ CoordinateSpec::CoordinateSpec()
 
     dimensional_integirity_check_ = true;
 
+    std::vector<std::int_fast32_t> temp_real_grid_in_the_grid_num(real_dimension_num_); 
+
+    std::vector<std::int_fast32_t> temp_total_real_grid_in_the_grid_num(real_dimension_num_);
+
+    std::vector<std::int_fast32_t> temp_total_velocity_grid_in_the_grid_num(velocity_grid_num_); 
+
+    for(int i = 0;i<real_dimension_num_;i++){
+        std::int_fast32_t amount_grid = 1;
+         for(int j = 1;j<(real_dimension_num_-i);j++){
+            amount_grid *= real_each_grid_num_[i+j];
+        }
+        temp_real_grid_in_the_grid_num[i] = amount_grid;
+        temp_total_real_grid_in_the_grid_num[i] = velocity_grid_num_ * amount_grid;
+    }
+
+    real_grid_in_the_grid_num_ = temp_real_grid_in_the_grid_num;
+
+    total_real_grid_in_the_grid_num_ =  temp_total_real_grid_in_the_grid_num;
+
+    
+    for(int i = 0;i<velocity_dimension_num_;i++){
+        std::int_fast32_t amount_grid = 1;
+         for(int j = 1;j<(velocity_dimension_num_-i);j++){
+            amount_grid *= velocity_each_grid_num_[i+j];
+        }
+         temp_total_velocity_grid_in_the_grid_num[i] = amount_grid;
+    }
+
+    total_velocity_grid_in_the_grid_num_ = temp_total_velocity_grid_in_the_grid_num;
+   
+
+
 }
 
 
