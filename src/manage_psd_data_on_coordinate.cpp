@@ -12,8 +12,8 @@ namespace manage_psd_data_on_coordinate{
     ,real_psd_by_integrate_velocity_psd_store_data_in_memory_array_(in_real_psd_by_integrate_velocity_psd_store_data_in_memory_array)
     ,coordinate_spec_(in_coordinate_spec)
     {
-        num_bufferarray_ = 0;
-        num_calcarray_ = (num_bufferarray_ + 1 ) % psd_store_data_in_memory_array_.get_buffer_num_();
+        num_bufferarray_ = 0,
+        num_calcarray_ = 1 % psd_store_data_in_memory_array_.get_buffer_num_();
     }
 
     void ManagePsdDataOnCoordinate::IntegrateVelocityPsdForRealPsd()
@@ -26,80 +26,14 @@ namespace manage_psd_data_on_coordinate{
             double integrate_each_real_psd = double(0.0);
             for(int j = 0; j < velocity_grid_num; j++){
                 integrate_each_real_psd += 
-                    psd_store_data_in_memory_array_.get_data_in_memory_array_()[array_num_integrate_real_grid][num_bufferarray_];
+                    psd_store_data_in_memory_array_.get_data_in_memory_array_()[array_num_integrate_real_grid+j][num_bufferarray_];
             }
             real_psd_by_integrate_velocity_psd_store_data_in_memory_array_.get_data_in_memory_array_()[i][num_bufferarray_] = integrate_each_real_psd;
         }
     }
 
 
-    std::int_fast32_t ManagePsdDataOnCoordinate::GetNumArrayFromCoordinateOnRealPsdArray(
-        std::vector<int_fast32_t> num_focus_real_elements) const
-    {
-        
-        std::vector<int_fast32_t> real_each_grid_num = coordinate_spec_.get_real_each_grid_num_();
-
-            coordinate_spec_.DimensionIntegrityTest(num_focus_real_elements,real_each_grid_num);
-
-            std::int_fast32_t num_psd_need_on_array = 0;
-
-            for(int i = 0;i<num_focus_real_elements.size();i++){
-
-                std::int_fast32_t amount_grid = 1;
-
-                for(int j = 1;j<(num_focus_real_elements.size()-i);j++){
-                    amount_grid *= real_each_grid_num[i+j];
-                }
-                num_psd_need_on_array += num_focus_real_elements[i] * amount_grid;
-            }
-        return num_psd_need_on_array;
-    }
-
-    std::int_fast32_t ManagePsdDataOnCoordinate::GetNumArrayFromCoordinateOnAllPsdArray(
-        std::vector<int_fast32_t> num_focus_real_elements,
-        std::vector<int_fast32_t> num_focus_velocity_elements) const
-    {
-
-        std::vector<int_fast32_t> real_each_grid_num = coordinate_spec_.get_real_each_grid_num_();
-
-        coordinate_spec_.DimensionIntegrityTest(num_focus_real_elements,real_each_grid_num);
-
-        std::vector<int_fast32_t> velocity_each_grid_num =coordinate_spec_.get_velocity_each_grid_num_();
-
-        coordinate_spec_.DimensionIntegrityTest(num_focus_velocity_elements,velocity_each_grid_num);
-
-        std::int_fast32_t num_psd_need_on_array = 0;
-
-        std::int_fast32_t velocity_grid_num = coordinate_spec_.get_velocity_grid_num_();
-
-        for(int i = 0;i<num_focus_real_elements.size();i++){
-
-            std::int_fast32_t amount_grid = 1;
-
-            for(int j = 1;j<(num_focus_real_elements.size()-i);j++){
-                amount_grid *= real_each_grid_num[i+j];
-            }
-            num_psd_need_on_array += num_focus_real_elements[i] * amount_grid * velocity_grid_num;
-        }
-
-        for(int i = 0;i<num_focus_velocity_elements.size();i++){
-
-            std::int_fast32_t amount_grid = 1;
-
-            for(int j = 1;j<(num_focus_velocity_elements.size()-i);j++){
-                amount_grid *= velocity_each_grid_num[i+j];
-            }
-            num_psd_need_on_array += num_focus_velocity_elements[i] * amount_grid;
-        }
-
-        return num_psd_need_on_array;
-        
-    }
-
-
-
-
-
+   
 
 
 
