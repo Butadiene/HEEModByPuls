@@ -20,7 +20,7 @@ $\vec{v} = v_\parallel\frac{\vec{B}^\ast}{B^\ast_\parallel}+\frac{\vec{D}}{B_\pa
 $\dot{v}_ \parallel = \frac{q}{m}\vec{D}\cdot\frac{\vec{B}^\ast}{{B^\ast}_\parallel}$
 
 
-$D = E-\frac{\mu}{q}\nabla B - \frac{m}{q}(v_\parallel\frac{\partial b}{\partial t}+\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
+$\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(v_\parallel\frac{\partial b}{\partial t}+\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
 
 $\vec{v_E} =\frac{\vec{E}}{B} \times \vec{b}$
 
@@ -34,3 +34,7 @@ $B = |\vec{B}|$
 $\vec{B}(\vec{m},\vec{r}) = \frac{\mu_0}{4\pi}\frac{3(\vec{m}\cdot \vec{\hat{r}})\vec{\hat{r}}-\vec{m}}{r^3}$
 
 $\vec{\hat{r}}=\frac{\vec{r}}{r}$
+
+Toroidal mode wave
+
+$B_{wave} = B_1sin()$
