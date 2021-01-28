@@ -53,4 +53,3 @@ Attention! if you use WSL2, you should install all software in WSL2.
   usu md file
   in VSCode, Ctrl K →V(preview)
   
-  If you want to appyly Latex, look at VSCode(Please disable preview security settings)
