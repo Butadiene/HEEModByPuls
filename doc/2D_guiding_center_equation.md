@@ -1,17 +1,8 @@
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
- tex2jax: {
- inlineMath: [['$', '$'] ],
- displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
- }
- });
-</script>
-## only vscode??(for tex)
 # Guiding Center Equation
 
 reference :: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010JA015682
+
+CGS
 
 $\frac{\partial f}{\partial t}+\vec{v} \cdot \frac{\partial f}{\partial \vec{x}} = 0$
 
@@ -19,7 +10,7 @@ $\vec{v} = \frac{\vec{D}}{B_\parallel^\ast} \times \vec{b}$
 
 $\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
 
-$\vec{v_E} =\frac{\vec{E}}{B} \times \vec{b}$
+$\vec{v_E} =\frac{c}{B} \vec{E}\times \vec{b}$
 
 $\vec{B^\ast} = \vec{B} + \frac{m}{q}(\nabla\times\vec{v_E})$
 
@@ -48,11 +39,11 @@ ULF waves
 
 $\vec{B}_{wave} = \vec{e _{\theta}}B_Asin(\omega(t-\frac{r\theta}{v}))$
 
-&emsp;&emsp;&emsp;$ =\vec{e_\theta} B_Asin(m\omega_d(t-\frac{r\theta}{v}))$
+$ =\vec{e_\theta} B_Asin(m\omega_d(t-\frac{r\theta}{v}))$
 
-&emsp;&emsp;&emsp;$=\vec{e_\theta} B_Asin(m(\frac{t}{T}-\frac{r\theta}{\lambda}))$
+$=\vec{e_\theta} B_Asin(m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda}))$
 
-$\vec{E}_{wave} = \vec{e_r} E_Asin(m(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2})$
+$\vec{E}_{wave} = \vec{e_r} E_Asin(m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2})$
 
 
 $\vec{B_0}= \frac{\mu_0}{4\pi}\frac{3(\vec{m}\cdot \vec{\hat{x}})\vec{\hat{x}}-\vec{m}}{|\vec{x}|^3}$
@@ -76,17 +67,17 @@ Apply to the fomula
 
 $\vec{v_E} =\frac{\vec{E}}{B} \times \vec{b}$
 
-&emsp; $=\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}$
+$=\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}$
 
 $\vec{B^\ast} = \vec{B} + \frac{m}{q}(\nabla\times\vec{v_E})$
 
-&emsp; $= \vec{B}+\frac{m}{q}(\nabla \times (\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}))$
+$= \vec{B}+\frac{m}{q}(\nabla \times (\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}))$
 
-&emsp; $= \vec{B}+\frac{m}{q}((\nabla \cdot \vec{B})\frac{\vec{E} _{wave}}{|B|^2} - (\nabla \cdot \frac{\vec{E} _{wave}}{|B|^2}) \vec{B})$
+$= \vec{B}+\frac{m}{q}((\nabla \cdot \vec{B})\frac{\vec{E} _{wave}}{|B|^2} - (\nabla \cdot \frac{\vec{E} _{wave}}{|B|^2}) \vec{B})$
 
 $\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
 
-&emsp; $= \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial}{\partial t}(\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B})+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
+$= \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial}{\partial t}(\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B})+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
 
 Assumption $\vec{B}_{wave}<<\vec{B_0}$
 

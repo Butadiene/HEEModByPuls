@@ -1,14 +1,3 @@
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
- tex2jax: {
- inlineMath: [['$', '$'] ],
- displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
- }
- });
-</script>
-## only vscode??(for tex)
 # Parameter standardization
 
 Definition
@@ -41,7 +30,7 @@ $c\frac{dx^\ast}{dt^\ast} = c v^\ast$
 
 $\frac{dx^\ast}{dt^\ast} = v^\ast$
 
-$\frac{dv}{dt}=\frac{q}{m}(\vec{E}+\vec{v}\times \vec{B}) $
+$\frac{dv}{dt}=\frac{q}{m}(\vec{E}+\vec{v}\times \vec{B})$
 
 $\frac{dv}{dt}=\frac{d(c\cdot v^\ast)}{d(\Omega_e^{-1}t^\ast)} = c\Omega_e \frac{dv^\ast}{dt^\ast}$
 
