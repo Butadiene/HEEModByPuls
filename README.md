@@ -24,6 +24,12 @@ easy coding!
 ### PlantUML
 for PlantUML on VSCode
 
+### Markdown Math
+for document
+
+### Markdown Preview Enhanced
+for document
+
 
 ## VSCode Extensions(not must)
 ### Git History
@@ -39,3 +45,12 @@ Attention! if you use WSL2, you should install all software in WSL2.
   for PlantUML
 ### graphviz
   for PlantUML
+
+### google chrome
+  for Markdown Preview Enhanced
+
+## Documentation file
+  usu md file
+  in VSCode, Ctrl K →V(preview)
+  
+  If you want to appyly Latex, look at VSCode(Please disable preview security settings)
