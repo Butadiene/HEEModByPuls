@@ -79,11 +79,18 @@ $\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial \vec
 
 $= \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial}{\partial t}(\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B})+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
 
-Assumption $\vec{B}_{wave}<<\vec{B_0}$
+Assumption 
+- $\vec{B}_{wave}<<\vec{B_0}$
+- $\frac{\partial B_z}{\partial z}= 0$
+so,
 
-$\vec{B} = \vec{B_0}$
+- $\vec{B} = \vec{B_0}$
 
-$\vec{b} = \vec{e_z}$ (only in the case of no spatial differentiation)
+- $\frac{\partial \vec{B}}{\partial t} = \vec{0}$
+- $\vec{B} = (B_r,B_\theta,B_z) = (0,0,B_z)$
+- $\frac{\partial \vec{B}}{\partial \vec{x}} = (\dot{B_r},0,0)$
+- $\vec{b} = \vec{e_z}$
+
 
 $\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial\vec{E} _{wave}}{\partial t}\times\frac{ \vec{B}}{|B|^2}+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
 
