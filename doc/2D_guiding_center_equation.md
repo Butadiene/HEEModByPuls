@@ -37,16 +37,21 @@ Toroidal mode wave
 
 ULF waves
 
-$\vec{B}_{wave} = \vec{e _{\theta}}B_Asin(\omega(t-\frac{r\theta}{v}))$
+$\vec{B}_{wave} = \vec{e _{\theta}}B_Asin(\omega(t-\frac{r\theta}{v_a}))$
 
-$ =\vec{e_\theta} B_Asin(m\omega_d(t-\frac{r\theta}{v}))$
+$ =\vec{e_\theta} B_Asin(m\omega_d(t-\frac{r\theta}{v_a}))$
 
 $=\vec{e_\theta} B_Asin(m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda}))$
 
 $\vec{E}_{wave} = \vec{e_r} E_Asin(m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2})$
 
+$E_{wave} =E_Asin(m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2})$
+
+
+$\vec{E}_{wave} = \vec{e_r} E_{wave}$
 
 $\vec{B_0}= \frac{\mu_0}{4\pi}\frac{3(\vec{m}\cdot \vec{\hat{x}})\vec{\hat{x}}-\vec{m}}{|\vec{x}|^3}$
+
 
 $\vec{m} = m\vec{e_z}$
 
@@ -77,7 +82,7 @@ $= \vec{B}+\frac{m}{q}((\nabla \cdot \vec{B})\frac{\vec{E} _{wave}}{|B|^2} - (\n
 
 $\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
 
-$= \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial}{\partial t}(\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B})+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
+$= \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial}{\partial t}(\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B})+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
 
 Assumption 
 - $\vec{B}_{wave}<<\vec{B_0}$
@@ -89,11 +94,17 @@ so,
 
 - $\frac{\partial \vec{B}}{\partial t} = \vec{0}$
 - $\vec{B} = (B_r,B_\theta,B_z) = (0,0,B_z)$
-- $\frac{\partial \vec{B}}{\partial \vec{x}} = (\dot{B_r},0,0)$
+- $\frac{\partial \vec{B}}{\partial \vec{x}} = (\xi_r,0,0)$
 - $\vec{b} = \vec{e_z}$
 
 
-$\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial\vec{E} _{wave}}{\partial t}\times\frac{ \vec{B}}{|B|^2}+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
+$\vec{D} = \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial\vec{E} _{wave}}{\partial t}\times\frac{ \vec{B}}{|B|^2}+\frac{1}{2}\nabla|\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
+
+$\vec{D} = \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{m}{q}(\frac{\partial (\vec{e_r} E_{wave})}{\partial t}\times\frac{ \vec{e_z}}{B_z}+\frac{1}{2}\nabla|\frac{\vec{e_r} E_{wave}}{|B|^2}\times \vec{B}|^2)$
+
+
+$\vec{D} = \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{m}{q}(-\frac{\partial E_{wave}}{\partial t}\frac{1}{B_z}e_\theta+\frac{1}{2}\nabla|\frac{\vec{e_r} E_{wave}}{|B|^2}\vec{B}+\frac{\vec{e_r} E_{wave}}{|B|^2}\times \vec{B}|^2)$
+
 
 
 $\vec{v} = \frac{\vec{D}}{B_\parallel^\ast} \times \vec{b}$
