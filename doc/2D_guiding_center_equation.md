@@ -103,6 +103,7 @@ $\vec{D} = \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\parti
 $\vec{D} = \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{m}{q}(\frac{\partial (\vec{e_r} E_{wave})}{\partial t}\times\frac{ \vec{e_z}}{B_z}+\frac{1}{2}\nabla|\frac{\vec{e_r} E_{wave}}{|B|^2}\times \vec{B}|^2)$
 
 
+
 $\vec{D} = \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{m}{q}(-\frac{\partial E_{wave}}{\partial t}\frac{1}{B_z}e_\theta+\frac{1}{2}\nabla|\frac{\vec{e_r} E_{wave}}{|B|^2}\vec{B}+\frac{\vec{e_r} E_{wave}}{|B|^2}\times \vec{B}|^2)$
 
 
