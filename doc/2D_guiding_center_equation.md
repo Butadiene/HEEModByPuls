@@ -84,6 +84,7 @@ Assumption
 - $\frac{\partial B_z}{\partial z}= 0$
 so,
 
+
 - $\vec{B} = \vec{B_0}$
 
 - $\frac{\partial \vec{B}}{\partial t} = \vec{0}$
