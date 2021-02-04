@@ -108,15 +108,15 @@ $ = B_z\vec{e_z}+\frac{mc}{q}(- (\nabla \cdot \frac{c\vec{E} _{wave}}{B_z^2}) B_
 
 $ = B_z\vec{e_z}+\frac{mc}{q}( - (\frac{\partial}{\partial r} \frac{cE _{wave}}{B_z^2}) B_z\vec{e_z})$
 
-$ = B_z\vec{e_z}+\frac{mc}{q}(-c(\frac{\partial E_{wave}}{\partial r}\frac{1}{B_z^2}-E _{wave}\frac{2B_z\xi_r}{B_z^4}) B_z\vec{e_z})$
+$ = B_z\vec{e_z}+\frac{mc}{q}(-c(\frac{1}{B_z^2}\frac{\partial E_{wave}}{\partial r}-E _{wave}\frac{2B_z\xi_r}{B_z^4}) B_z\vec{e_z})$
 
-$ = B_z\vec{e_z}+\frac{mc}{q}(c(-\frac{\partial E_{wave}}{\partial r}\frac{1}{B_z}+E _{wave}\frac{2\xi_r}{B_z^2})\vec{e_z})$
-
-
-$ = (B_z+\frac{mc^2}{q}(-\frac{\partial E_{wave}}{\partial r}\frac{1}{B_z}+E _{wave}\frac{2\xi_r}{B_z^2}))\vec{e_z}$
+$ = B_z\vec{e_z}+\frac{mc}{q}(c(-\frac{1}{B_z}\frac{\partial E_{wave}}{\partial r}+E _{wave}\frac{2\xi_r}{B_z^2})\vec{e_z})$
 
 
-$B^\ast_\parallel =B_z+\frac{mc^2}{q}(-\frac{\partial E_{wave}}{\partial r}\frac{1}{B_z}+E _{wave}\frac{2\xi_r}{B_z^2})$
+$ = (B_z+\frac{mc^2}{q}(-\frac{1}{B_z}\frac{\partial E_{wave}}{\partial r}+E _{wave}\frac{2\xi_r}{B_z^2}))\vec{e_z}$
+
+
+$B^\ast_\parallel =B_z+\frac{mc^2}{q}(-\frac{1}{B_z}\frac{\partial E_{wave}}{\partial r}+E _{wave}\frac{2\xi_r}{B_z^2})$
 
 
 $\vec{D} = \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(c\frac{\partial\vec{E} _{wave}}{\partial t}\times\frac{ \vec{B}}{|B|^2}+\frac{1}{2}\nabla|c\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
@@ -145,4 +145,4 @@ $=(E_{wave}-\frac{\mu}{q}\xi_r-\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3}-c\fra
 
 $\vec{v} = \frac{\vec{D}}{B_\parallel^\ast} \times \vec{b}$
 
-$\vec{v} =  (B_z+\frac{mc^2}{q}(-\frac{\partial E_{wave}}{\partial r}\frac{1}{B_z}+E _{wave}\frac{2\xi_r}{B_z^2}))^{-1}(-(E_{wave}-\frac{\mu}{q}\xi_r-\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3}-c\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{\partial r})\vec{e_\theta}+\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{\partial \theta})\vec{e_r})$
+$\vec{v} =  (B_z+\frac{mc^2}{q}(-\frac{1}{B_z}\frac{\partial E_{wave}}{\partial r}+E _{wave}\frac{2\xi_r}{B_z^2}))^{-1}(-(E_{wave}-\frac{\mu}{q}\xi_r-\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3}-c\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{\partial r})\vec{e_\theta}+\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{\partial \theta})\vec{e_r})$
