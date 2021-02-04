@@ -104,7 +104,7 @@ so,
 $B^\ast= \vec{B}+\frac{mc}{q}((\nabla \cdot \vec{B})\frac{c\vec{E} _{wave}}{|B|^2} - (\nabla \cdot \frac{c\vec{E} _{wave}}{|B|^2}) \vec{B})$
 
 
-$ = B_z\vec{e_z}+\frac{mc}{q}(- (\nabla \cdot \frac{c\vec{E} _{wave}}{B_z^2}) B_z\vec{e_z})$
+$ = B_z\vec{e_z}+\frac{mc}{q}(- (\nabla \cdot \frac{c E _{wave}\vec{e_r}}{B_z^2}) B_z\vec{e_z})$
 
 $ = B_z\vec{e_z}+\frac{mc}{q}( - (\frac{\partial}{r\partial r} \frac{rcE _{wave}}{B_z^2}) B_z\vec{e_z})$
 
