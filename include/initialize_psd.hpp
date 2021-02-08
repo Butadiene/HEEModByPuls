@@ -7,17 +7,19 @@
 namespace heemodbypuls{
 namespace initialize_psd{
 
-class InitializePsd{
-    const manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& manage_psd_;
+    class InitializePsd{
+        const manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& manage_psd_;
 
-public:
-    explicit InitializePsd(
-        const manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& in_manage_psd
-    );
+    public:
+        explicit InitializePsd(
+            const manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& in_manage_psd
+        );
 
-    void TestInitialize7();
+        void TestInitialize7();
 
-};
+        void Maxwellian(std::int_fast32_t teperature);
+
+    };
 
 
 
