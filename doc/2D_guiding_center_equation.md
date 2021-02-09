@@ -115,8 +115,9 @@ $ = B_z\vec{e_z}+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r \vec{e_z})$
 
 $\vec{D} = \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(c\frac{\partial\vec{E} _{wave}}{\partial t}\times\frac{ \vec{B}}{|B|^2}+\frac{1}{2}\nabla|c\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
 
-$= \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{mc}{q}(\frac{\partial (\vec{e_r} E_{wave})}{\partial t}\times\frac{ \vec{e_z}}{B_z}+\frac{c}{2}\nabla|\frac{\vec{e_r} E_{wave}}{B_z^2}\times B_z\vec{e_z}|^2)$
+$= \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{m}{q}(c\frac{\partial (\vec{e_r} E_{wave})}{\partial t}\times\frac{ \vec{e_z}}{B_z}+\frac{c^2}{2}\nabla|\frac{\vec{e_r} E_{wave}}{B_z^2}\times B_z\vec{e_z}|^2)$
 
+$= \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{mc}{q}(\frac{\partial (\vec{e_r} E_{wave})}{\partial t}\times\frac{ \vec{e_z}}{B_z}+\frac{c}{2}\nabla|\frac{\vec{e_r} E_{wave}}{B_z^2}\times B_z\vec{e_z}|^2)$
 
 
 $ = \vec{e_r} E_{wave}-\frac{\mu}{q}\xi_r\vec{e_r} - \frac{mc}{q}(-\frac{\partial E_{wave}}{\partial t}\frac{1}{B_z}\vec{e_\theta}+\frac{c}{2}\nabla|-\frac{E_{wave}}{B_z^2}B_z\vec{e_\theta}|^2)$
