@@ -103,7 +103,7 @@ so,
 - $\vec{b} = \vec{e_z}$
 - $\frac{\partial E_{wave}}{\partial r} = \frac{\partial E_{wave}}{\partial z} = 0$
 
-$B^\ast= \vec{B}+\frac{mc}{q}((\vec{B}\cdot \nabla)\frac{c\vec{E} _{wave}}{|B|^2} - (\frac{c\vec{E} _{wave}}{|B|^2} \cdot \nabla)\vec{B}+(\nabla \cdot \vec{B})\frac{c\vec{E} _{wave}}{|B|^2} - (\nabla \cdot \frac{c\vec{E} _{wave}}{|B|^2}) \vec{B})$
+$\vec{B^\ast}= \vec{B}+\frac{mc}{q}((\vec{B}\cdot \nabla)\frac{c\vec{E} _{wave}}{|B|^2} - (\frac{c\vec{E} _{wave}}{|B|^2} \cdot \nabla)\vec{B}+(\nabla \cdot \vec{B})\frac{c\vec{E} _{wave}}{|B|^2} - (\nabla \cdot \frac{c\vec{E} _{wave}}{|B|^2}) \vec{B})$
 
 
 $ = B_z\vec{e_z}+\frac{mc}{q}((B_z\vec{e_z}\cdot \nabla)\frac{cE_{wave}\vec{e_r}}{B_z^2} - (\nabla \cdot \frac{c E _{wave}\vec{e_r}}{B_z^2} + \frac{cE _{wave}\vec{e_r}}{B_z^2} \cdot \nabla) B_z\vec{e_z})$
@@ -112,6 +112,7 @@ $ = B_z\vec{e_z}+\frac{mc}{q}((\frac{cE _{wave}\vec{e_r}}{B_z^2} \cdot \nabla) B
 
 $ = B_z\vec{e_z}+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r \vec{e_z})$
 
+$B^\ast_\parallel = B^\ast\cdot \vec{b} = B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r) $
 
 $\vec{D} = \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(c\frac{\partial\vec{E} _{wave}}{\partial t}\times\frac{ \vec{B}}{|B|^2}+\frac{1}{2}\nabla|c\frac{\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2)$
 
@@ -140,4 +141,4 @@ $=(E_{wave}-\frac{\mu}{q}\xi_r-\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{
 
 $\vec{v} = \frac{\vec{D}}{B_\parallel^\ast} \times \vec{b}$
 
-$\vec{v} =  (B_z\vec{e_z}+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r \vec{e_z}))^{-1}(-(E_{wave}-\frac{\mu}{q}\xi_r-\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}+\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{r\partial \theta})\vec{e_r})$
+$\vec{v} =  (B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r))^{-1}(-(E_{wave}-\frac{\mu}{q}\xi_r-\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}+\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{r\partial \theta})\vec{e_r})$
