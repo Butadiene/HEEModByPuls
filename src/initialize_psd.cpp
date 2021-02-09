@@ -26,7 +26,7 @@ namespace initialize_psd{
         coordinate_spec::CoordinateSpec coordinate_spec = manage_psd_.get_coordinate_spec_();
 
         std::vector<std::int_fast32_t> focus_real_grid{coordinate_spec.get_real_dimension_num_(),0};
-
+/*
         for(int i=0;i<coordinate_spec.get_real_dimension_num_();i++){
             for(int j =0;j<coordinate_spec.get_real_each_grid_num_()[i];j++){
                 
@@ -36,7 +36,7 @@ namespace initialize_psd{
                  manage_psd_.SetVelocityPsd();
              }
         }
-        
+  */      
     }
 
 
