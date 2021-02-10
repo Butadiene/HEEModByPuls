@@ -8,7 +8,7 @@ add_library(HeeModandGeoMagPuls
         manage_psd_data_on_coordinate.cpp
         manage_field_data_on_coordinate.cpp
         apply_boundary_condition.cpp
-        vlasov_solver.cpp
+        vlasov_solver1d.cpp
 )
 
 target_include_directories(HeeModandGeoMagPuls

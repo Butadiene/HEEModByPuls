@@ -36,10 +36,7 @@ int main(){
     manage_psd_data.UpdateBufferParam();
     manage_psd_data.IntegrateVelocityPsdForRealPsd();
   }
-
-  //psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
-
-//real_psd_by_integrate_velocity_psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+//psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal()
   
   //for field
   std::int_fast32_t array_elements_num_for_field 
@@ -53,6 +50,10 @@ int main(){
 
   manage_field_data_on_coordinate::ManageFieldDataOnCoordinate manage_field_data(field_store_data_in_memory_array,coordinate_spec);
 
-  //field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+  apply_boundary_condition::ApplyBoundaryCondition apply_boundary_condition(coordinate_spec);
+
+  vlasov1d_solver::Vlasov1DSolver vlasov1d_solver(manage_psd_data,manage_field_data,apply_boundary_condition);
+
+  field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
 }

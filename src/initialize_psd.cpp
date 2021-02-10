@@ -31,8 +31,8 @@ namespace initialize_psd{
             
         }
 
-        std::vector<std::int_fast32_t> focus_real_grid{1,0};
-        std::vector<std::int_fast32_t> focus_velocity_grid{1,0};
+        std::vector<std::int_fast32_t> focus_real_grid(1,0);
+        std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
 
 
         for(int i =0;i<coordinate_spec.get_real_each_grid_num_()[0];i++){
