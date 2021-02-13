@@ -43,12 +43,14 @@ class Vlasov1DSolver{
 
     double calc_advection(double cfl_num,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2);
 
-    void field_update();
    
   
 
 public:
     explicit Vlasov1DSolver(manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& in_manage_psd_data,manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& in_manage_field_data,const apply_boundary_condition::ApplyBoundaryCondition& in_apply_condition);
+
+    
+    void field_update();
 
     void solver();
 

@@ -23,6 +23,7 @@ namespace vlasov1d_solver{
         delta_theta_ = theta_range_ / coordinate_spec_.get_real_each_grid_num_()[0];
         field_update();
 
+
     }
 
 
@@ -68,31 +69,60 @@ namespace vlasov1d_solver{
       }
 
       void Vlasov1DSolver::field_update(){
+          
         std::int_fast32_t real_grid_num = coordinate_spec_.get_real_each_grid_num_()[0];
-        std::vector<std::int_fast32_t> focus_grid(1,0);
-        std::vector<double> field_vector(1,0);
+       // std::vector<std::int_fast32_t> focus_grid(1,0);
+       // std::vector<double> field_vector(1.0,0);
+        /*
         for(int i =0;i<real_grid_num;i++){
             focus_grid[0] = i;
             field_vector[0] = ulf_electric_amplitude_*std::sin(m_number_*2.0*mathcommon::PI*(total_time_/ulf_wave_period_-Radius_*delta_theta_*i/ulf_wave_length_)+mathcommon::PI/2.0);
             manage_field_data_.SetFieldValue(0.,focus_grid,field_vector);
         }
+        */
        
       }
 
    
     void Vlasov1DSolver::solver(){
+        /*
         std::int_fast32_t real_grid_num = coordinate_spec_.get_real_each_grid_num_()[0];
         std::int_fast32_t velocity_grid_num = coordinate_spec_.get_velocity_each_grid_num_()[0];
+        std::vector<std::int_fast32_t> focus_real_grid(1,0);
+        std::vector<std::int_fast32_t> focus_real_grid_plus1(1,0);
+        std::vector<std::int_fast32_t> focus_real_grid_plus2(1,0);
+        std::vector<std::int_fast32_t> focus_real_grid_minus1(1,0);
+        std::vector<std::int_fast32_t> focus_real_grid_minus2(1,0);
+        std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
+        */
+        field_update();
+          // 
+        /*
         for(int i = 0;i<all_steps_;i++){
-            field_update();
+         
             for(int j=0;j<real_grid_num;j++){
+                focus_real_grid[0] = j;
+                focus_real_grid_plus1[0] = (j+1)%real_grid_num;
+                focus_real_grid_plus2[0] = (j+2)%real_grid_num;
+                focus_real_grid_minus1[0] = (j-1+real_grid_num)%real_grid_num;
+                focus_real_grid_minus2[0] = (j-2+real_grid_num)%real_grid_num;
                 for(int k=0;k<velocity_grid_num;k++){
                     double velocity = 0.0;//j and k use
-                   // double fi = manage_psd_data_.ge
+                    /*
+                    double fi = manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid);
+                    double fi_plus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus1,focus_velocity_grid);
+                    double fi_plus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus2,focus_velocity_grid);
+                    double fi_minus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus1,focus_velocity_grid);
+                    double fi_minus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus2,focus_velocity_grid);
+
+
+
                 }
             }
             total_time_ += delta_time_;
+           
         }
+         */
 
     }
 
