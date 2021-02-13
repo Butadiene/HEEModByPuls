@@ -52,9 +52,8 @@ int main(){
 
   apply_boundary_condition::ApplyBoundaryCondition apply_boundary_condition(coordinate_spec);
 
-  vlasov1d_solver::Vlasov1DSolver vlasov1d_solver(manage_psd_data,manage_field_data,apply_boundary_condition);
-  vlasov1d_solver.field_update();
- // vlasov1d_solver.solver();
+  vlasov1d_solver::Vlasov1DSolver vlasov1d_solver(manage_psd_data,manage_field_data,apply_boundary_condition,coordinate_spec);
+  vlasov1d_solver.solver();
 
  
   //psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();

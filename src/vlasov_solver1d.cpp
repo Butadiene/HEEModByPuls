@@ -6,11 +6,12 @@ namespace heemodbypuls{
 namespace vlasov1d_solver{
 
     Vlasov1DSolver::Vlasov1DSolver(manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate& in_manage_psd_data,manage_field_data_on_coordinate::ManageFieldDataOnCoordinate& in_manage_field_data,
-    const apply_boundary_condition::ApplyBoundaryCondition& in_apply_condition)
+    const apply_boundary_condition::ApplyBoundaryCondition& in_apply_condition,
+    const coordinate_spec::CoordinateSpec& in_coordinate_spec)
     :manage_psd_data_(in_manage_psd_data)
     ,manage_field_data_(in_manage_field_data)
     ,apply_boundary_condition_(in_apply_condition)
-    ,coordinate_spec_(in_manage_psd_data.get_coordinate_spec_())
+    ,coordinate_spec_(in_coordinate_spec)
     {
         if(coordinate_spec_.get_real_dimension_num_()!=1||coordinate_spec_.get_velocity_dimension_num_()!=1){
             std::cout<<"HEEModByPuls's error::The number of dimensions does not match on Vlasov1D"<<"\n";
@@ -71,21 +72,21 @@ namespace vlasov1d_solver{
       void Vlasov1DSolver::field_update(){
           
         std::int_fast32_t real_grid_num = coordinate_spec_.get_real_each_grid_num_()[0];
-       // std::vector<std::int_fast32_t> focus_grid(1,0);
-       // std::vector<double> field_vector(1.0,0);
-        /*
+        std::vector<std::int_fast32_t> focus_grid(1,0);
+        std::vector<double> field_vector(1.0,0);
+        
         for(int i =0;i<real_grid_num;i++){
             focus_grid[0] = i;
             field_vector[0] = ulf_electric_amplitude_*std::sin(m_number_*2.0*mathcommon::PI*(total_time_/ulf_wave_period_-Radius_*delta_theta_*i/ulf_wave_length_)+mathcommon::PI/2.0);
             manage_field_data_.SetFieldValue(0.,focus_grid,field_vector);
         }
-        */
+        
        
       }
 
    
     void Vlasov1DSolver::solver(){
-        /*
+        
         std::int_fast32_t real_grid_num = coordinate_spec_.get_real_each_grid_num_()[0];
         std::int_fast32_t velocity_grid_num = coordinate_spec_.get_velocity_each_grid_num_()[0];
         std::vector<std::int_fast32_t> focus_real_grid(1,0);
@@ -94,12 +95,12 @@ namespace vlasov1d_solver{
         std::vector<std::int_fast32_t> focus_real_grid_minus1(1,0);
         std::vector<std::int_fast32_t> focus_real_grid_minus2(1,0);
         std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
-        */
-        field_update();
-          // 
-        /*
+        
+      
+          
+        
         for(int i = 0;i<all_steps_;i++){
-         
+           field_update();
             for(int j=0;j<real_grid_num;j++){
                 focus_real_grid[0] = j;
                 focus_real_grid_plus1[0] = (j+1)%real_grid_num;
@@ -108,7 +109,7 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus2[0] = (j-2+real_grid_num)%real_grid_num;
                 for(int k=0;k<velocity_grid_num;k++){
                     double velocity = 0.0;//j and k use
-                    /*
+                    
                     double fi = manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid);
                     double fi_plus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus1,focus_velocity_grid);
                     double fi_plus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus2,focus_velocity_grid);
@@ -122,7 +123,7 @@ namespace vlasov1d_solver{
             total_time_ += delta_time_;
            
         }
-         */
+         
 
     }
 
