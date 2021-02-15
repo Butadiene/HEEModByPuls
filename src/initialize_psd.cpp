@@ -40,7 +40,7 @@ namespace initialize_psd{
             double focus_grid_density = manage_psd_.GetRealPsd(focus_real_grid);
 
             for(int j = 0;j<coordinate_spec.get_velocity_each_grid_num_()[0];j++){
-                focus_velocity_grid[0] = j;
+                focus_velocity_grid[0] = 1;
                 manage_psd_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,j);
              }
         }
