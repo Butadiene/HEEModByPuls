@@ -56,6 +56,6 @@ int main(){
   vlasov1d_solver.solver();
 
  
-  //psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
+  psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
 }

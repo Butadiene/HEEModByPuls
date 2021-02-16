@@ -31,7 +31,7 @@ class Vlasov1DSolver{
 
     const double theta_range_ = mathcommon::PI/3.0;
 
-    const std::int_fast32_t all_steps_ = 64;
+    const std::int_fast32_t all_steps_ = 64 ;
 
     double delta_theta_;
 

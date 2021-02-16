@@ -92,8 +92,10 @@ namespace vlasov1d_solver{
         std::vector<std::int_fast32_t> focus_real_grid(1,0);
         std::vector<std::int_fast32_t> focus_real_grid_plus1(1,0);
         std::vector<std::int_fast32_t> focus_real_grid_plus2(1,0);
+        std::vector<std::int_fast32_t> focus_real_grid_plus3(1,0);
         std::vector<std::int_fast32_t> focus_real_grid_minus1(1,0);
         std::vector<std::int_fast32_t> focus_real_grid_minus2(1,0);
+        std::vector<std::int_fast32_t> focus_real_grid_minus3(1,0);
         std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
         
       
@@ -105,22 +107,48 @@ namespace vlasov1d_solver{
                 focus_real_grid[0] = j;
                 focus_real_grid_plus1[0] = (j+1)%real_grid_num;
                 focus_real_grid_plus2[0] = (j+2)%real_grid_num;
+                focus_real_grid_plus3[0] = (j+3)%real_grid_num;               
                 focus_real_grid_minus1[0] = (j-1+real_grid_num)%real_grid_num;
                 focus_real_grid_minus2[0] = (j-2+real_grid_num)%real_grid_num;
+                focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double velocity = 0.0;//j and k use
+                   focus_velocity_grid[0] = k; 
+                    double velocity = 1.0;//j and k use
+
+                    double u_plus = 0.0;
+
+                    double u_minus = 0.0;
                     
+                  
                     double fi = manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid);
                     double fi_plus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus1,focus_velocity_grid);
                     double fi_plus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus2,focus_velocity_grid);
                     double fi_minus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus1,focus_velocity_grid);
                     double fi_minus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus2,focus_velocity_grid);
 
+                    double nuu = -velocity*delta_time_/delta_theta_;
 
+                    double Li_plus = 0.0;
+                    double Li_minus = 0.0;
+                    //calc_Li(Li_plus,Li_minus,fi_minus2,fi_minus1,fi,fi_plus1,fi_plus2);
+
+                    if(velocity<0){
+                        u_plus = nuu*fi+nuu*(1+nuu)*(2+nuu)*(fi-fi_plus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_plus1-fi_plus2)/6;
+                        u_minus =nuu*fi_minus1+nuu*(1+nuu)*(2+nuu)*(fi_minus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_plus1)/6;
+                    }else{
+                        u_plus = nuu*fi+nuu*(1-nuu)*(2-nuu)*(fi_plus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_minus1)/6;
+                        u_minus =nuu*fi_minus1+nuu*(1-nuu)*(2-nuu)*(fi-fi_minus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_minus1-fi_minus2)/6;
+                        
+                    }
+                    
+                    //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,u_minus-u_plus);
+
+                    //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,k);
 
                 }
             }
             total_time_ += delta_time_;
+            manage_psd_data_.UpdateBufferParam();
            
         }
          
