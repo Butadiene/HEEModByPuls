@@ -27,35 +27,6 @@ namespace vlasov1d_solver{
 
     }
 
-
-
-    void Vlasov1DSolver::calc_Li(double& Li_plus ,double& Li_minus,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2){
-        double fmin1 = std::min(std::min(fi_minus1,fi),std::max(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
-
-        double fmin2 = std::min(std::min(fi_plus1,fi),std::max(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
-
-        double fmax1 = std::max(std::max(fi_minus1,fi),std::min(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
-
-        double fmax2 = std::max(std::max(fi_plus1,fi),std::min(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
-
-        double fmax = std::max(fmax1,fmax2);
-
-        double fmin = std::max(0.0,std::min(fmin1,fmin2));
-
-        if(fi_plus1>=fi){
-            Li_plus = std::min(2.*(fi-fmin),(fi_plus1-fi));
-        }else{
-            Li_plus = std::max(2.*(fi-fmax),(fi_plus1-fi));
-        }
-
-        if(fi>=fi_minus1){
-            Li_minus = std::min(2.*(fmax-fi),(fi-fi_minus1));
-        }else{
-            Li_minus = std::max(2.*(fmin-fi),(fi-fi_minus1));
-        }
-
-    }
-
     
       double Vlasov1DSolver::calc_advection(double cfl_num,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2){
           double Li_plus = 0.;
@@ -130,18 +101,32 @@ namespace vlasov1d_solver{
 
                     double Li_plus = 0.0;
                     double Li_minus = 0.0;
+
+                    double fmin1 = std::min(std::min(fi_minus1,fi),std::max(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
+
+                    double fmin2 = std::min(std::min(fi_plus1,fi),std::max(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
+
+                    double fmax1 = std::max(std::max(fi_minus1,fi),std::min(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
+
+                    double fmax2 = std::max(std::max(fi_plus1,fi),std::min(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
+
+                    double fmax = std::max(fmax1,fmax2);
+
+                    double fmin = std::max(0.0,std::min(fmin1,fmin2));
+
+
                     //calc_Li(Li_plus,Li_minus,fi_minus2,fi_minus1,fi,fi_plus1,fi_plus2);
 
                     if(velocity<0){
-                        u_plus = nuu*fi+nuu*(1+nuu)*(2+nuu)*(fi-fi_plus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_plus1-fi_plus2)/6;
-                        u_minus =nuu*fi_minus1+nuu*(1+nuu)*(2+nuu)*(fi_minus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_plus1)/6;
+                        u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(fi-fi_plus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_plus1-fi_plus2)/6;
+                        u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(fi_minus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_plus1)/6;
                     }else{
                         u_plus = nuu*fi+nuu*(1-nuu)*(2-nuu)*(fi_plus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_minus1)/6;
                         u_minus =nuu*fi_minus1+nuu*(1-nuu)*(2-nuu)*(fi-fi_minus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_minus1-fi_minus2)/6;
                         
                     }
                     
-                    //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,u_minus-u_plus);
+                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,fi+u_minus-u_plus);
 
                     //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,k);
 
