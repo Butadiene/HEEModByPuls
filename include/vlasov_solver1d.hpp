@@ -39,8 +39,7 @@ class Vlasov1DSolver{
 
     //void set_field
 
-    void calc_Li(double& Li_plus ,double& Li_minus,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2);
-
+   
     double calc_advection(double cfl_num,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2);
 
    

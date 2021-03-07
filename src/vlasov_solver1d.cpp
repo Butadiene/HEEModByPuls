@@ -31,8 +31,7 @@ namespace vlasov1d_solver{
       double Vlasov1DSolver::calc_advection(double cfl_num,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2){
           double Li_plus = 0.;
           double Li_minus = 0.;
-          
-          calc_Li(Li_plus,Li_minus,fi_minus2,fi_minus1,fi,fi_plus1,fi_plus2);
+      
         
           double u_plus = cfl_num*fi+cfl_num*(1.-cfl_num)*(2.-cfl_num)*Li_plus/6.+cfl_num*(1.0-cfl_num)*(1.+cfl_num)*Li_minus/6.;
 
@@ -115,8 +114,6 @@ namespace vlasov1d_solver{
                     double fmin = std::max(0.0,std::min(fmin1,fmin2));
 
 
-                    //calc_Li(Li_plus,Li_minus,fi_minus2,fi_minus1,fi,fi_plus1,fi_plus2);
-
                     if(velocity<0){
                         u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(fi-fi_plus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_plus1-fi_plus2)/6;
                         u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(fi_minus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_plus1)/6;
@@ -126,7 +123,7 @@ namespace vlasov1d_solver{
                         
                     }
                     
-                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,fi+u_minus-u_plus);
+                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,1+fi+(fi+u_minus-u_plus)*0.);
 
                     //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,k);
 
