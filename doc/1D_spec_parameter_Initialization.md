@@ -28,7 +28,7 @@ $t = Tt^\ast$
 $\frac{\partial B_z}{\partial r} = \xi_r$
 
 
-
+$\frac{\partial (B_z^\ast B_{eq})}{\partial (cTr^\ast)} = \frac{ B_{eq}}{cT}\frac{\partial B_z^\ast}{\partial r^\ast}  =  \frac{ B_{eq}}{cT}\xi_r^\ast = \xi_r$
 
 
 $\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B_{eq}} = \frac{c^2m_e}{B_{eq}}\mu^\ast$
