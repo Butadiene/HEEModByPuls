@@ -20,9 +20,11 @@ $\vec{E} = B_{eq}\vec{E^\ast}$
 
 $t = Tt^\ast$   
 
-so,
 
 $\frac{\partial B_z}{\partial r} = \xi_r$
+
+
+so,
 
 $\frac{\partial (B_z^\ast B_{eq})}{\partial (cTr^\ast)} = \frac{ B_{eq}}{cT}\frac{\partial B_z^\ast}{\partial r^\ast}  =  \frac{ B_{eq}}{cT}\xi_r^\ast = \xi_r$
 
