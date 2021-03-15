@@ -1,4 +1,5 @@
 #include "../include/vlasov_solver1d.hpp"
+#include "../include/physical_constant.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -68,9 +69,21 @@ namespace vlasov1d_solver{
         std::vector<std::int_fast32_t> focus_real_grid_minus3(1,0);
         std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
         
-      
-          
-        
+        double guzai_aster = 1.0; 
+        double myu_aster = 1.0;
+        double t_aster = 1.0;
+        double R_zero = 1.0;
+        double T_period = 1.0;
+        double B_z_aster = 1.0;
+        double m_aster = 1.0;
+        double q_aster = 1.0;
+        double Omega_e = 1.0;
+        double E_aster_A = 0.0;
+        double lamda = 1.0;
+        double wave_num = 1.0;
+        double sita = 1.0;
+        double PI = mathcommon::PI;
+        double lightspeed = physical_constant::lightspeed;
         for(int i = 0;i<all_steps_;i++){
            field_update();
             for(int j=0;j<real_grid_num;j++){
@@ -83,7 +96,13 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 for(int k=0;k<velocity_grid_num;k++){
                    focus_velocity_grid[0] = k; 
-                    double velocity = 1.0;//j and k use
+                    double velocity_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*sin(wave_num*2.0*PI*(t_aster-R_zero*sita/lamda)+PI/2.0))));
+
+                    double velocity_numerator = E_aster_A*sin(wave_num*2.0*PI*(t_aster-R_zero*sita/lamda)+PI/2.0)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*pow(E_aster_A*sin(wave_num*2.0*PI*(t_aster-R_zero*sita/lamda)+PI/2.0),2.0);
+
+                    double velocity = velocity_numerator/velocity_denominator;
+
+                    //double velocity = 1.0;
 
                     double u_plus = 0.0;
 

@@ -44,13 +44,13 @@ ULF waves
 
 $\vec{B}_{wave} = \vec{e _{\theta}}B_A\sin\{\omega(t-\frac{r\theta}{v_a})\}$
 
-$ =\vec{e_\theta} B_A\sin\{m\omega_d(t-\frac{r\theta}{v_a})\}$
+$ =\vec{e_\theta} B_A\sin\{n\omega_d(t-\frac{r\theta}{v_a})\}$
 
-$=\vec{e_\theta} B_A\sin\{m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})\}$
+$=\vec{e_\theta} B_A\sin\{n2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})\}$
 
-$\vec{E}_{wave} = \vec{e_r} E_A\sin\{m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}$
+$\vec{E}_{wave} = \vec{e_r} E_A\sin\{n2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}$
 
-$E_{wave} =E_A\sin\{m2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}$
+$E_{wave} =E_A\sin\{n2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}$
 
 
 $\vec{E}_{wave} = \vec{e_r} E_{wave}$
@@ -153,8 +153,8 @@ in 1D,
 $\vec{v} =  -\{B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r)\}^{-1}(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}$
 
 
-$E_{wave} =E_A\sin\{m2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}$
+$E_{wave} =E_A\sin\{n2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}$
 
 so,
 
-$\vec{v} =  -\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{m2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{m2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{m2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$
+$\vec{v} =  -\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{n2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{n2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{n2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$

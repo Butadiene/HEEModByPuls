@@ -11,7 +11,7 @@ namespace physical_constant {
 // Don't use Pointer type constant
 
 constexpr double PI = 3.1415926535;
-
+constexpr double lightspeed = 299792458;
 
 }
 }
