@@ -4,17 +4,25 @@ Definition
 
 $c$ : lightspeed
 
+$c =  2.99792458×10^{10}$cm/s
+
 $m = m_e m^\ast$
+
+$m_e = 9.10938356×10^{-28}$g 
 
 $m^* = 1$
 
 $q = q_e q^\ast$
+
+$q_e = 4.8*10^{-10}$ Fr
 
 $q^* = 1$
 
 $v = cv^\ast$
 
 $T$ ULF wave period
+
+$T = 100$ s
 
 $x = c Tx^\ast$
 
@@ -37,6 +45,7 @@ $B = \frac{B_E}{L^3}\frac{(1+3\sin^2\Lambda)^
 
 when $\Lambda = 0$,
 
+B_eq の定義がめちゃくちゃ　あとで直す
 
 $B_{eq} = \frac{B_E}{L^3}$
 
