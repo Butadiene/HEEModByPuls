@@ -30,6 +30,11 @@ $\vec{B} = B_{eq}\vec{B^\ast}$
 
 $\vec{E} = B_{eq}\vec{E^\ast}$
 
+Here, it is assumed that $B_{eq}$ is the equatorial magnetic field in the Lshell of interest.
+That's mean $B_{eq}(L)$
+
+$R_0 = 6371$km $\approx 6.4*10^3$km $=6.4*10^8$cm
+
 $t = Tt^\ast$   
 
 
@@ -41,15 +46,17 @@ $\frac{\partial (B_z^\ast B_{eq})}{\partial (cTr^\ast)} = \frac{ B_{eq}}{cT}\fra
 
 $B = \frac{B_E}{L^3}\frac{(1+3\sin^2\Lambda)^
 {\frac{1}{2}}}{\cos^6\Lambda}$(from:Basic Space Plasma Physics)
-($B_E = 3.11*10^{-5}T$)
+($B_E = 3.11*10^{-5}$T $=3.11*10^{-1}$G)
 
 when $\Lambda = 0$,
-
-B_eq の定義がめちゃくちゃ　あとで直す
 
 $B_{eq} = \frac{B_E}{L^3}$
 
 $\xi_r^\ast = \xi_r \frac{cT}{B_{eq}} = \frac{\partial B_z}{\partial L} \frac{\partial L}{\partial r}\frac{cT}{B_{eq}} =  \frac{\partial B_z}{\partial r} \frac{cT}{B_{eq}} \frac{\partial L}{\partial r}= -3\frac{B_E}{L^4} \frac{cTL^3}{B_E}\frac{\partial L}{\partial r} = -3\frac{cT}{L}\frac{\partial L}{\partial r}$
+
+$r = LR_0$
+
+$\xi_r^\ast = -3\frac{cT}{L}\frac{1}{R_0}$
 
 $\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B_{eq}} = \frac{c^2m_e}{B_{eq}}\mu^\ast$
 
