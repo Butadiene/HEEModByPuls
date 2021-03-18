@@ -20,22 +20,10 @@ class Vlasov1DSolver{
 
     const coordinate_spec::CoordinateSpec& coordinate_spec_;
 
-    const double delta_time_ = 1.;
 
-    const double Radius_ = 5.;
-
-    const double ulf_electric_amplitude_ = 0.2;
-    const double m_number_ = 1.0;
-    const double ulf_wave_length_ = 1.0;
-    const double ulf_wave_period_ = 0.2;
-
-    const double theta_range_ = mathcommon::PI/3.0;
 
     const std::int_fast32_t all_steps_ = 64 ;
 
-    double delta_theta_;
-
-    double total_time_;
 
     //void set_field
 
