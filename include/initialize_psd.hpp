@@ -17,7 +17,7 @@ namespace initialize_psd{
 
         void TestInitialize7();
 
-        void Maxwellian1D1D(std::int_fast32_t teperature);
+        void ExponentialDistribution();
 
     };
 

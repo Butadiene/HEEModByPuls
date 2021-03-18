@@ -72,7 +72,7 @@ namespace vlasov1d_solver{
         double guzai_aster = -3.0*lightspeed*T_period/Lvalue/R_zero; 
         double m_e = 9.1E-28;
         double q_e = 4.8E-10;
-        double t_aster = 1.0;
+        double t_aster = 0.0;
         
         double PI = mathcommon::PI;
         double B_z_aster = 1.0;
@@ -84,9 +84,8 @@ namespace vlasov1d_solver{
         double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
-      
-        double total_time = 0.0;
-        double delta_time = 0.0;
+     
+        double delta_t_aster = 0.1;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -124,8 +123,8 @@ namespace vlasov1d_solver{
                     double fi_plus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus2,focus_velocity_grid);
                     double fi_minus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus1,focus_velocity_grid);
                     double fi_minus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus2,focus_velocity_grid);
-
-                    double nuu = -velocity*delta_time/(R_zero * Lvalue * delta_theta);
+/////////////////////////////////////////////////////////////////速度の規格化の話ががばがばなんですが！！！！
+                    double nuu = -velocity*delta_t_aster/(R_zero * Lvalue * delta_theta);
 
                     double Li_plus = 0.0;
                     double Li_minus = 0.0;
@@ -158,7 +157,7 @@ namespace vlasov1d_solver{
 
                 }
             }
-            total_time += delta_time;
+            t_aster += delta_t_aster;
             manage_psd_data_.UpdateBufferParam();
            
         }

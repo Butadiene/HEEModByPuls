@@ -1,5 +1,6 @@
 #include "../include/initialize_psd.hpp"
 #include <iostream>
+#include <math.h>
 namespace heemodbypuls{
 namespace initialize_psd{
 
@@ -20,7 +21,7 @@ namespace initialize_psd{
     }
 
     
-    void InitializePsd::Maxwellian1D1D(std::int_fast32_t teperature){
+    void InitializePsd::ExponentialDistribution(){
 
         
         coordinate_spec::CoordinateSpec coordinate_spec = manage_psd_.get_coordinate_spec_();
@@ -34,15 +35,19 @@ namespace initialize_psd{
         std::vector<std::int_fast32_t> focus_real_grid(1,0);
         std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
 
-        float density = 0.0;
+        double density = 0.0;
+        double width_scale = 4.0;
 
-        for(int i =0;i<coordinate_spec.get_real_each_grid_num_()[0];i++){
+        double real_each_grid_num = coordinate_spec.get_real_each_grid_num_()[0];
+
+        for(int i =0;i<real_each_grid_num;i++){
             focus_real_grid[0] = i;
-            double focus_grid_density = manage_psd_.GetRealPsd(focus_real_grid);
-            
+            //double focus_grid_density = manage_psd_.GetRealPsd(focus_real_grid);
+            double a = std::abs((real_each_grid_num/2.-i)/width_scale)+1;
+            density = std::exp(-a)*a;
             for(int j = 0;j<coordinate_spec.get_velocity_each_grid_num_()[0];j++){
                 focus_velocity_grid[0] = j;
-                manage_psd_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,j);
+                manage_psd_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,density);
              }
         }
            
