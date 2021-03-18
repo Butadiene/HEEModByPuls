@@ -34,11 +34,12 @@ namespace initialize_psd{
         std::vector<std::int_fast32_t> focus_real_grid(1,0);
         std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
 
+        float density = 0.0;
 
         for(int i =0;i<coordinate_spec.get_real_each_grid_num_()[0];i++){
             focus_real_grid[0] = i;
             double focus_grid_density = manage_psd_.GetRealPsd(focus_real_grid);
-
+            
             for(int j = 0;j<coordinate_spec.get_velocity_each_grid_num_()[0];j++){
                 focus_velocity_grid[0] = j;
                 manage_psd_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,j);

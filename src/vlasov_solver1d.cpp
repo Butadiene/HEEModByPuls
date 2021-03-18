@@ -125,8 +125,8 @@ namespace vlasov1d_solver{
                     double fi_minus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus1,focus_velocity_grid);
                     double fi_minus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus2,focus_velocity_grid);
 
-                    double nuu = -velocity*delta_time/delta_theta;
-///////////////////////////////delta_thetaの扱い要確認　
+                    double nuu = -velocity*delta_time/(R_zero * Lvalue * delta_theta);
+
                     double Li_plus = 0.0;
                     double Li_minus = 0.0;
 
