@@ -67,7 +67,7 @@ namespace vlasov1d_solver{
         double R_zero = 6.4E8;
         double lightspeed = physical_constant::lightspeed;
         double B_E = 3.11E-1;
-        double T_period = 1.0;
+        double T_period = 100.0;
         double B_eq = B_E/(Lvalue*Lvalue*Lvalue);
         double guzai_aster = -3.0*lightspeed*T_period/Lvalue/R_zero; 
         double m_e = 9.1E-28;
@@ -79,13 +79,13 @@ namespace vlasov1d_solver{
         double m_aster = 1.0;
         double q_aster = 1.0;
         double Omega_e = q_e/(m_e*lightspeed)*B_eq;
-        double E_aster_A = 0.0;//4.0E3/lightspeed;
+        double E_aster_A = 4.0E3/lightspeed;
         double m_number = 20.0;
         double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 0.1;
+        double delta_t_aster = 10.;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -100,18 +100,18 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double myu = 1.0;
-                    double myu_aster = B_eq/(lightspeed*lightspeed*m_e);
+                    double v_perp_ast = 0.01;
+                    double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
 
+                    float phase = 2.0*PI*(t_aster-R_zero*theta/lamda)+PI/2.0;
+                    phase = PI/2.0; //constant electric field
 
                    focus_velocity_grid[0] = k; 
-                    double velocity_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*sin(2.0*PI*(t_aster-R_zero*theta/lamda)+PI/2.0))));
+                    double velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    double velocity_numerator = E_aster_A*sin(2.0*PI*(t_aster-R_zero*theta/lamda)+PI/2.0)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*pow(E_aster_A*sin(2.0*PI*(t_aster-R_zero*theta/lamda)+PI/2.0),2.0);
+                    double velocity_aster_numerator = (1/lightspeed)*E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0);
 
-                    double velocity = velocity_numerator/velocity_denominator;
-
-                    //double velocity = 1.0;
+                    double velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 
                     double u_plus = 0.0;
 
@@ -123,9 +123,11 @@ namespace vlasov1d_solver{
                     double fi_plus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_plus2,focus_velocity_grid);
                     double fi_minus1 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus1,focus_velocity_grid);
                     double fi_minus2 = manage_psd_data_.GetVelocityPsd(focus_real_grid_minus2,focus_velocity_grid);
-/////////////////////////////////////////////////////////////////速度の規格化の話ががばがばなんですが！！！！
-                    double nuu = -velocity*delta_t_aster/(R_zero * Lvalue * delta_theta);
 
+                    double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
+
+                    double nuu = -velocity_aster*delta_t_aster/delta_x_aster;
+ 
                     double Li_plus = 0.0;
                     double Li_minus = 0.0;
 
@@ -142,7 +144,7 @@ namespace vlasov1d_solver{
                     double fmin = std::max(0.0,std::min(fmin1,fmin2));
 
 
-                    if(velocity<0){
+                    if(velocity_aster<0){
                         u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(fi-fi_plus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_plus1-fi_plus2)/6;
                         u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(fi_minus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_plus1)/6;
                     }else{
@@ -151,7 +153,7 @@ namespace vlasov1d_solver{
                         
                     }
                     
-                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,1+fi+(fi+u_minus-u_plus)*0.);
+                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
 
                     //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,k);
 

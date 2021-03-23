@@ -66,4 +66,11 @@ $\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B
 
 $E_A = 4$mV/m $ = 4*10^{-3}$V/m = $4*10^{-3}*10^6 c^{-1}$statV/cm $= 4*10^3c^{-1}$statV/cm
 
-$\vec{v} =  -\{B_z^\ast+\frac{m^\ast}{q^\ast}\frac{\xi_r^\ast }{T \Omega_e }(\frac{E^\ast_A }{(B_z^\ast )^2}\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})\}^{-1}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu^\ast}{  q^\ast}\frac{\xi_r^\ast}{T \Omega_e}+\frac{m^\ast c}{q^\ast}\frac{1}{(B_z^\ast)^3}\frac{\xi_r^\ast}{T \Omega_e}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2 )\vec{e_\theta}$
+$\vec{v^\ast} =  -\frac{1}{c}\{B_z^\ast+\frac{m^\ast}{q^\ast}\frac{\xi_r^\ast }{T \Omega_e }(\frac{E^\ast_A }{(B_z^\ast )^2}\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})\}^{-1}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu^\ast}{  q^\ast}\frac{\xi_r^\ast}{T \Omega_e}+\frac{m^\ast c}{q^\ast}\frac{1}{(B_z^\ast)^3}\frac{\xi_r^\ast}{T \Omega_e}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2 )\vec{e_\theta}$
+
+
+$\frac{\partial f}{\partial t} + v\frac{\partial f}{\partial x} = 0$
+
+$\frac{\partial f}{\partial (T t^\ast)} + c v^\ast\frac{\partial f}{\partial (cTx^\ast)} = 0$
+
+$\frac{\partial f}{\partial t^\ast} + v^\ast\frac{\partial f}{\partial x^\ast} = 0$

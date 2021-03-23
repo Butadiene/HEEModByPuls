@@ -45,7 +45,7 @@ $\Omega_e = \frac{q_e}{cm_e}B_{eq}$ : Electron cyclotron frequency
 
 $\vec{v} =  -\{B_z^\ast+\frac{m^\ast}{\Omega_e q^\ast}(\frac{E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{(B_z^\ast )^2} \frac{1}{T}\xi_r^\ast )\}^{-1}(E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{ q_e q^\ast} \frac{1}{cT}\xi_r^\ast+\frac{m^\ast c}{\Omega_e q^\ast}\frac{(E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\frac{1}{T}\xi_r^\ast }{(B_z^\ast)^3})\vec{e_\theta}$
 
-$\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B_{eq}} = \frac{c^2m_e}{B_{eq}}\mu^\ast$
+$\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B_{eq}} =\frac{c^2m_e}{B_{eq}}\frac{m^\ast v^{\ast 2}_\perp}{2B^\ast} =\frac{c^2m_e}{B_{eq}}\mu^\ast$
 
 
 $\vec{v} =  -\{B_z^\ast+\frac{m^\ast}{\Omega_e q^\ast}(\frac{E_A^\ast }{(B_z^\ast )^2}\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\} \frac{1}{T}\xi_r^\ast )\}^{-1}(E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{m_e c^2 }{B_{eq}}\mu^\ast\frac{1}{ q_e q^\ast} \frac{1}{cT}\xi_r^\ast+\frac{m^\ast c}{\Omega_e q^\ast}\frac{1}{(B_z^\ast)^3}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\frac{1}{T}\xi_r^\ast )\vec{e_\theta}$
@@ -53,3 +53,5 @@ $\vec{v} =  -\{B_z^\ast+\frac{m^\ast}{\Omega_e q^\ast}(\frac{E_A^\ast }{(B_z^\as
 $\vec{v} =  -\{B_z^\ast+\frac{m^\ast}{\Omega_e q^\ast}(\frac{E_A^\ast }{(B_z^\ast )^2}\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\} \frac{1}{T}\xi_r^\ast )\}^{-1}(E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu^\ast}{  q^\ast \Omega_e}\frac{1}{T}\xi_r^\ast+\frac{m^\ast c}{\Omega_e q^\ast}\frac{1}{(B_z^\ast)^3}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\frac{1}{T}\xi_r^\ast )\vec{e_\theta}$
 
 $\vec{v} =  -\{B_z^\ast+\frac{m^\ast}{q^\ast}\frac{\xi_r^\ast }{T \Omega_e }(\frac{E_A^\ast }{(B_z^\ast )^2}\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})\}^{-1}(E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu^\ast}{  q^\ast}\frac{\xi_r^\ast}{T \Omega_e}+\frac{m^\ast c}{q^\ast}\frac{1}{(B_z^\ast)^3}\frac{\xi_r^\ast}{T \Omega_e}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2 )\vec{e_\theta}$
+
+$\vec{v^\ast} =  -\frac{1}{c}\{B_z^\ast+\frac{m^\ast}{q^\ast}\frac{\xi_r^\ast }{T \Omega_e }(\frac{E_A^\ast }{(B_z^\ast )^2}\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})\}^{-1}(E_A^\ast\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu^\ast}{  q^\ast}\frac{\xi_r^\ast}{T \Omega_e}+\frac{m^\ast c}{q^\ast}\frac{1}{(B_z^\ast)^3}\frac{\xi_r^\ast}{T \Omega_e}(E^\ast_A\sin\{2\pi(t^\ast-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2 )\vec{e_\theta}$
