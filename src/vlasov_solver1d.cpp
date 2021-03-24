@@ -78,14 +78,14 @@ namespace vlasov1d_solver{
         double B_z_aster = 1.0;
         double m_aster = 1.0;
         double q_aster = 1.0;
-        double Omega_e = q_e/(m_e*lightspeed)*B_eq;
-        double E_aster_A = 4.0E3/lightspeed;
+        double Omega_e = B_eq*q_e/(m_e*lightspeed);
+        double E_aster_A = 0.0;//4.0E3/lightspeed;
         double m_number = 20.0;
         double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 10.;
+        double delta_t_aster = 100.;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -109,7 +109,9 @@ namespace vlasov1d_solver{
                    focus_velocity_grid[0] = k; 
                     double velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    double velocity_aster_numerator = (1/lightspeed)*E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0);
+                    double velocity_aster_numerator = (1/lightspeed)*(E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+
+                    float tesst = -myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
 
                     double velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 

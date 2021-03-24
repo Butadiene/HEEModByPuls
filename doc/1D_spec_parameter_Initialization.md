@@ -55,13 +55,15 @@ when $\Lambda = 0$,
 
 $B_{eq} = \frac{B_E}{L^3}$
 
-$\xi_r^\ast = \xi_r \frac{cT}{B_{eq}} = \frac{\partial B_z}{\partial L} \frac{\partial L}{\partial r}\frac{cT}{B_{eq}} =  \frac{\partial B_z}{\partial r} \frac{cT}{B_{eq}} \frac{\partial L}{\partial r}= -3\frac{B_E}{L^4} \frac{cTL^3}{B_E}\frac{\partial L}{\partial r} = -3\frac{cT}{L}\frac{\partial L}{\partial r}$
+$\xi_r^\ast = \xi_r \frac{cT}{B_{eq}} = \frac{\partial B_z}{\partial r}\frac{cT}{B_{eq}} = \frac{\partial B_z}{\partial L} \frac{\partial L}{\partial r}\frac{cT}{B_{eq}} =  \frac{\partial B_z}{\partial r} \frac{cT}{B_{eq}} \frac{\partial L}{\partial r}= -3\frac{B_E}{L^4} \frac{cTL^3}{B_E}\frac{\partial L}{\partial r} = -3\frac{cT}{L}\frac{\partial L}{\partial r}$
+
+
 
 $r = LR_0$
 
 $\xi_r^\ast = -3\frac{cT}{L}\frac{1}{R_0}$
 
-$\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B_{eq}} = \frac{c^2m_e}{B_{eq}}\mu^\ast$
+$\mu = \frac{mv_\perp^2}{2B} = \frac{m^\ast m_e c^2 v^{\ast 2}_\perp }{2B^\ast B_{eq}} =\frac{c^2m_e}{B_{eq}}\frac{m^\ast v^{\ast 2}_\perp}{2B^\ast} =\frac{c^2m_e}{B_{eq}}\mu^\ast$
 
 
 $E_A = 4$mV/m $ = 4*10^{-3}$V/m = $4*10^{-3}*10^6 c^{-1}$statV/cm $= 4*10^3c^{-1}$statV/cm
