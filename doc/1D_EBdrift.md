@@ -38,3 +38,7 @@ $\frac{mc^2}{q}\frac{(E_A)^2\xi_r}{B_z^3} = \frac{mc}{q}(\frac{c(E_A)^2\xi_r}{B_
 
 
 $v =  -c\{B_z+\frac{mc}{q}(\frac{cE_A}{B_z^2} \xi_r)\}^{-1}(E_A-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A)^2\xi_r}{B_z^3}) = c\frac{( 10^{-7}\mathrm{statV/cm}-7.3\times10^{-11}\mathrm{statV/cm}-7.1\times10^{-13}\mathrm{statV/cm})}{1.4\times10^{-3}\mathrm{G}-0.01\times10^{-6}\mathrm{G}} = 3.0\times10^{10}\mathrm{cm/s}\times(7.1\times10^{-5}-5.2\times10^{-8}-5.0\times10^{-10}) =(2.1\times10^{6}-1.6\times10^{3}-1.5\times10^{1})\mathrm{cm/s}$
+
+from Basic space plasma physics
+
+$|\vec{v_E}| = v_E = \frac{E}{B} = \frac{3\mathrm{mV/m}}{1.4\times10^{-7}T} = 2.1\times10^4\mathrm{m/s}$
