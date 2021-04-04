@@ -79,7 +79,7 @@ namespace vlasov1d_solver{
         double m_aster = 1.0;
         double q_aster = 1.0;
         double Omega_e = B_eq*q_e/(m_e*lightspeed);
-        double E_aster_A = 0.0;//4.0E3/lightspeed;
+        double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
         double m_number = 20.0;
         double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
