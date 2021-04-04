@@ -26,12 +26,15 @@ $\xi_r = \frac{\partial B_z}{\partial r} = \frac{\partial B_z}{\partial L}\frac{
 
 
 
-$\{B_z+\frac{mc}{q}(\frac{cE_A}{B_z^2} \xi_r)\} = 1.4\times10^{-3}G + \frac{9.1\times 10^{-28}\mathrm{g}\times3.0\times10^{10}\mathrm{cm/s}}{4.8\times10^{-10}\mathrm{statC}}(\frac{3.0\times10^{10}\mathrm{cm/s}\times10^{-5}\mathrm{statV}}{(1.4\times10^{-3}\mathrm{G})^2}\frac{-3\times 3.1\times 10^{-1}\mathrm{G}}{6^4\times6\times10^8\mathrm{cm}}) = 1.4\times10^{-3}G-\frac{9.1\times3.0\times3.0\times3\times3.1}{4.8\times1.4\times1.4\times6^4\times6}\frac{10^{-14}}{10^{-8}}=1.4\times10^{-3}G-0.01\times10^{-6}G$
+$\{B_z+\frac{mc}{q}(\frac{cE_A}{B_z^2} \xi_r)\} = 1.4\times10^{-3}\mathrm{G} + \frac{9.1\times 10^{-28}\mathrm{g}\times3.0\times10^{10}\mathrm{cm/s}}{4.8\times10^{-10}\mathrm{statC}}(\frac{3.0\times10^{10}\mathrm{cm/s}\times10^{-5}\mathrm{statV}}{(1.4\times10^{-3}\mathrm{G})^2}\frac{-3\times 3.1\times 10^{-1}\mathrm{G}}{6^4\times6\times10^8\mathrm{cm}}) = 1.4\times10^{-3}\mathrm{G}-\frac{9.1\times3.0\times3.0\times3\times3.1}{4.8\times1.4\times1.4\times6^4\times6}\frac{10^{-14}}{10^{-8}}=1.4\times10^{-3}\mathrm{G}-0.01\times10^{-6}\mathrm{G}$
 
 about $(E_A-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A)^2\xi_r}{B_z^3})\vec{e_\theta}$
 
 $E_A = 10^{-7}\mathrm{statV/cm}$
 
-$\frac{\mu}{q}\xi_r =\frac{(9.1\times 10^{-28}\mathrm{g})\times(3.0\times10^8\mathrm{cm/s})^2}{2.0\times1.4\times10^{-3}\mathrm{G}}\times\frac{1}{4.8\times10^{-10}\mathrm{statC}}$
+$\frac{\mu}{q}\xi_r =\frac{(9.1\times 10^{-28}\mathrm{g})\times(3.0\times10^8\mathrm{cm/s})^2}{2.0\times1.4\times10^{-3}\mathrm{G}}\times\frac{1}{4.8\times10^{-10}\mathrm{statC}} \times \frac{-3\times 3.1\times 10^{-1}\mathrm{G}}{6^4\times6\times10^8\mathrm{cm}} = -\frac{9.1\times3.0\times3.0\times3\times3.1}{2.0\times1.4\times4.8\times6^4\times6}\times\frac{10^{-13}}{10^{-5}}\mathrm{statV/cm} = -0.0073\times10^{-8}\mathrm{statV/cm} = -7.3\times10^{-11}\mathrm{statV/cm}$
 
-$\xi_r = \frac{\partial B_z}{\partial r} = \frac{\partial B_z}{\partial L}\frac{\partial L}{\partial r} =-3\frac{B_E}{L^4}\frac{1}{R_0} = \frac{-3\times 3.1\times 10^{-1}\mathrm{G}}{6^4\times6\times10^8\mathrm{cm}}$
+$\frac{mc^2}{q}\frac{(E_A)^2\xi_r}{B_z^3} = \frac{mc}{q}(\frac{c(E_A)^2\xi_r}{B_z^3}) =  \{ \frac{mc}{q}(\frac{cE_A\xi_r}{B_z^2}) \}(\frac{E_A}{B_z}) = -(0.01\times10^{-6}\mathrm{G})\times\frac{10^{-7}\mathrm{statV/cm}}{1.4\times 10^{-3}\mathrm{G}} =- \frac{1}{1.4}\times 10^{-12}\mathrm{statV/cm} = -7.1\times10^{-13}\mathrm{statV/cm}$
+
+
+$v =  -c\{B_z+\frac{mc}{q}(\frac{cE_A}{B_z^2} \xi_r)\}^{-1}(E_A-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A)^2\xi_r}{B_z^3}) = c\frac{( 10^{-7}\mathrm{statV/cm}-7.3\times10^{-11}\mathrm{statV/cm}-7.1\times10^{-13}\mathrm{statV/cm})}{1.4\times10^{-3}\mathrm{G}-0.01\times10^{-6}\mathrm{G}} = 3.0\times10^{10}\mathrm{cm/s}\times(7.1\times10^{-5}-5.2\times10^{-8}-5.0\times)$
