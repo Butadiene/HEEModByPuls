@@ -145,15 +145,15 @@ $=(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{
 
 $\vec{v} = \frac{\vec{D}}{B_\parallel^\ast} \times \vec{b}$
 
-$\vec{v} =  \{B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r)\}^{-1}\{-(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}+\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{R_0\partial \theta})\vec{e_r}\}$
+$\vec{v} =  c\{B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r)\}^{-1}\{-(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}+\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{R_0\partial \theta})\vec{e_r}\}$
 
 in 1D,
 
-$\vec{v} =  -\{B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r)\}^{-1}(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}$
+$\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r)\}^{-1}(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}$
 
 
 $E_{wave} =E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}$
 
 so,
 
-$\vec{v} =  -\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$
+$\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$
