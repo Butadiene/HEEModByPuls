@@ -111,6 +111,10 @@ namespace vlasov1d_solver{
 
                     double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
+                    double velocity_one  = E_aster_A;
+                    double velocity_two  = myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
+                    double velocity_three = m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A,2.0);
+
                     float tesst = -myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
 
                     double velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
