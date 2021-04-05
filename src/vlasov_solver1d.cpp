@@ -113,7 +113,7 @@ namespace vlasov1d_solver{
 
                     double velocity_one  = E_aster_A;
                     double velocity_two  = myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
-                    double velocity_three = m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A,2.0);
+                    double velocity_three = m_aster/(q_aster)*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A,2.0);
 
                     float tesst = -myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
 
