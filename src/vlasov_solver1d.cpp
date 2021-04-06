@@ -63,29 +63,29 @@ namespace vlasov1d_solver{
         std::vector<std::int_fast32_t> focus_real_grid_minus3(1,0);
         std::vector<std::int_fast32_t> focus_velocity_grid(1,0);
 
-        double Lvalue = 6.0;
-        double R_zero = 6.4E8;
-        double lightspeed = physical_constant::lightspeed;
-        double B_E = 3.11E-1;
-        double T_period = 100.0;
-        double B_eq = B_E/(Lvalue*Lvalue*Lvalue);
-        double guzai_aster = -3.0*lightspeed*T_period/Lvalue/R_zero; 
-        double m_e = 9.1E-28;
-        double q_e = 4.8E-10;
+        constexpr double Lvalue = 6.0;
+        constexpr double R_zero = 6.4E8;
+        constexpr double lightspeed = physical_constant::lightspeed;
+        constexpr double B_E = 3.11E-1;
+        constexpr double T_period = 100.0;
+        constexpr double B_eq = B_E/(Lvalue*Lvalue*Lvalue);
+        constexpr double guzai_aster = -3.0*lightspeed*T_period/Lvalue/R_zero; 
+        constexpr double m_e = 9.1E-28;
+        constexpr double q_e = 4.8E-10;
         double t_aster = 0.0;
         
-        double PI = mathcommon::PI;
-        double B_z_aster = 1.0;
-        double m_aster = 1.0;
-        double q_aster = 1.0;
-        double Omega_e = B_eq*q_e/(m_e*lightspeed);
-        double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
-        double m_number = 20.0;
-        double lamda = Lvalue*R_zero*2.*PI/m_number;
+        constexpr double PI = mathcommon::PI;
+        constexpr double B_z_aster = 1.0;
+        constexpr double m_aster = 1.0;
+        constexpr double q_aster = 1.0;
+        constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
+        constexpr double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
+        constexpr double m_number = 20.0;
+        constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 100.;
+        double delta_t_aster = 0.1;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -109,7 +109,7 @@ namespace vlasov1d_solver{
                    focus_velocity_grid[0] = k; 
                     double velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+                    double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
                     double velocity_one  = E_aster_A;
                     double velocity_two  = myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
