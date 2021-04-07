@@ -85,7 +85,7 @@ namespace vlasov1d_solver{
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 100.;
+        double delta_t_aster = 0.1;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -109,7 +109,7 @@ namespace vlasov1d_solver{
                    focus_velocity_grid[0] = k; 
                     double velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster*lightspeed/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+                    double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
                     double velocity_one  = E_aster_A;
                     double velocity_two  = myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
@@ -151,12 +151,20 @@ namespace vlasov1d_solver{
 
 
                     if(velocity_aster<0){
-                        u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(fi-fi_plus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_plus1-fi_plus2)/6;
-                        u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(fi_minus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_plus1)/6;
+                        Li_plus = fi-fi_plus1;
+                        Li_minus = fi_plus1-fi_plus2;
+                        u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
+                        Li_plus = fi_minus1-fi;
+                        Li_minus = fi-fi_plus1;
+                        u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
                     }else{
-                        u_plus = nuu*fi+nuu*(1-nuu)*(2-nuu)*(fi_plus1-fi)/6+nuu*(1-nuu)*(1+nuu)*(fi-fi_minus1)/6;
-                        u_minus =nuu*fi_minus1+nuu*(1-nuu)*(2-nuu)*(fi-fi_minus1)/6+nuu*(1-nuu)*(1+nuu)*(fi_minus1-fi_minus2)/6;
-                        
+                        Li_plus = fi_plus1-fi;
+                        Li_minus = fi-fi_minus1;
+                        u_plus = nuu*fi+nuu*(1-nuu)*(2-nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
+                        Li_plus = fi-fi_minus1;
+                        Li_minus = fi_minus1-fi_minus2;
+                        u_minus =nuu*fi_minus1+nuu*(1-nuu)*(2-nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
+
                     }
                     
                     manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
