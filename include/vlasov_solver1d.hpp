@@ -22,7 +22,7 @@ class Vlasov1DSolver{
 
 
 
-    const std::int_fast32_t all_steps_ = 80 ;
+    const std::int_fast32_t all_steps_ = 10 ;
 
 
     //void set_field
@@ -34,6 +34,9 @@ class Vlasov1DSolver{
    
     double Li_minusFunc(double fmin,double fmax,double fi,double value);
    
+    double Li_plusFuncAlt(double fmin,double fmax,double value1,double value2);
+   
+    double Li_minusFuncAlt(double fmin,double fmax,double value1,double value2);
   
 
 public:

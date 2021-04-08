@@ -52,14 +52,29 @@ namespace vlasov1d_solver{
       double Vlasov1DSolver::Li_plusFunc(double fmin,double fmax,double fi,double value){
         float res = 0.0;
         if(value>=0){res = std::min(2*(fi-fmin),value);}
-        else{res = std::max(2*(fmax-fi),value);}
+        else{res = std::max(2*(fi-fmax),value);}
         return res;
       }
 
       double Vlasov1DSolver::Li_minusFunc(double fmin,double fmax,double fi,double value){
         float res = 0.0;
-        if(value>=0){res = 1;}
-        else{res = 1;}
+        if(value>=0){res = std::min(2*(fmax-fi),value);}
+        else{res = std::max(2*(fmin-fi),value);}
+        return res;
+      }
+
+
+    double Vlasov1DSolver::Li_plusFuncAlt(double fmin,double fmax,double value1,double value2){
+        float res = 0.0;
+        if(value1>=value2){res = std::min(2*(value2-fmin),value1-value2);}
+        else{res = std::max(2*(value2-fmax),value1-value2);}
+        return res;
+      }
+
+      double Vlasov1DSolver::Li_minusFuncAlt(double fmin,double fmax,double value1,double value2){
+        float res = 0.0;
+        if(value1>=value2){res = std::min(2*(fmax-value1),value1-value2);}
+        else{res = std::max(2*(fmin-value1),value1-value2);}
         return res;
       }
    
@@ -150,13 +165,13 @@ namespace vlasov1d_solver{
                     double Li_plus = 0.0;
                     double Li_minus = 0.0;
 
-                    double fmin1 = std::min(std::min(fi_minus1,fi),std::max(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
-
-                    double fmin2 = std::min(std::min(fi_plus1,fi),std::max(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
-
                     double fmax1 = std::max(std::max(fi_minus1,fi),std::min(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
 
                     double fmax2 = std::max(std::max(fi_plus1,fi),std::min(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
+
+                    double fmin1 = std::min(std::min(fi_minus1,fi),std::max(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
+
+                    double fmin2 = std::min(std::min(fi_plus1,fi),std::max(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
 
                     double fmax = std::max(fmax1,fmax2);
 
@@ -166,16 +181,32 @@ namespace vlasov1d_solver{
                     if(velocity_aster<0){
                         Li_plus = fi-fi_plus1;
                         Li_minus = fi_plus1-fi_plus2;
+                       // Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
+                       // Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
+                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi,fi_plus1);
+                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi_plus1,fi_plus2);
                         u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
                         Li_plus = fi_minus1-fi;
                         Li_minus = fi-fi_plus1;
+                        //Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
+                        //Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
+                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi_minus1,fi);
+                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi,fi_plus1);
                         u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
                     }else{
                         Li_plus = fi_plus1-fi;
                         Li_minus = fi-fi_minus1;
+                        //Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
+                        //Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
+                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi_plus1,fi);
+                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi,fi_minus1);
                         u_plus = nuu*fi+nuu*(1-nuu)*(2-nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
                         Li_plus = fi-fi_minus1;
                         Li_minus = fi_minus1-fi_minus2;
+                        //Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
+                        //Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
+                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi,fi_minus1);
+                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi_minus1,fi_minus2);
                         u_minus =nuu*fi_minus1+nuu*(1-nuu)*(2-nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
 
                     }
