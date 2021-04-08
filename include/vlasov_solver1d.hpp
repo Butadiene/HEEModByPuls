@@ -30,6 +30,9 @@ class Vlasov1DSolver{
    
     double calc_advection(double cfl_num,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2);
 
+    double Li_plusFunc(double fmin,double fmax,double fi,double value);
+   
+    double Li_minusFunc(double fmin,double fmax,double fi,double value);
    
   
 

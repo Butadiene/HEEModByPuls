@@ -49,6 +49,19 @@ namespace vlasov1d_solver{
        
       }
 
+      double Vlasov1DSolver::Li_plusFunc(double fmin,double fmax,double fi,double value){
+        float res = 0.0;
+        if(value>=0){res = std::min(2*(fi-fmin),value);}
+        else{res = std::max(2*(fmax-fi),value);}
+        return res;
+      }
+
+      double Vlasov1DSolver::Li_minusFunc(double fmin,double fmax,double fi,double value){
+        float res = 0.0;
+        if(value>=0){res = 1;}
+        else{res = 1;}
+        return res;
+      }
    
     void Vlasov1DSolver::solver(){
         
