@@ -27,6 +27,7 @@ class Vlasov1DSolver{
 
     //void set_field
 
+    void calcFminFmax(double &fmin,double &fmax,double fi_plus2,double fi_plus1,double fi,double fi_minus1,double fi_minus2);
    
     double calc_advection(double cfl_num,double fi_minus2,double fi_minus1, double fi,double fi_plus1,double fi_plus2);
 
@@ -37,6 +38,8 @@ class Vlasov1DSolver{
     double Li_plusFuncAlt(double fmin,double fmax,double value1,double value2);
    
     double Li_minusFuncAlt(double fmin,double fmax,double value1,double value2);
+
+   
   
 
 public:
