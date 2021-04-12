@@ -152,8 +152,8 @@ in 1D,
 $\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE _{wave}}{B_z^2} \xi_r)\}^{-1}(E_{wave}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{E^2_{wave}\xi_r}{B_z^3})\vec{e_\theta}$
 
 
-$E_{wave} =E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}$
+$E_{wave} =E_A\sin\{2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}$
 
 so,
 
-$\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$
+$\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$

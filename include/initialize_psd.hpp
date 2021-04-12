@@ -19,6 +19,8 @@ namespace initialize_psd{
 
         void ExponentialDistribution();
 
+        void UniformDistribution();
+
     };
 
 

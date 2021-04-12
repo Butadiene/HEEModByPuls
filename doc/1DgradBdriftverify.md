@@ -1,7 +1,7 @@
 gradB : 
 
 
-$\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{2\pi(\frac{t}{T}-\frac{R_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$
+$\vec{v} =  -c\{B_z+\frac{mc}{q}(\frac{cE_A\sin\{2\pi(\frac{t}{T}-\frac{LR_0\theta}{\lambda})+\frac{\pi}{2}\}}{B_z^2} \xi_r)\}^{-1}(E_A\sin\{2\pi(\frac{t}{T}-\frac{LR_0\theta}{\lambda})+\frac{\pi}{2}\}-\frac{\mu}{q}\xi_r+\frac{mc^2}{q}\frac{(E_A\sin\{2\pi(\frac{t}{T}-\frac{LR_0\theta}{\lambda})+\frac{\pi}{2}\})^2\xi_r}{B_z^3})\vec{e_\theta}$
 
 so, $v_{grad} =\frac{c}{B_z} \frac{\mu}{q}\xi_r$
 

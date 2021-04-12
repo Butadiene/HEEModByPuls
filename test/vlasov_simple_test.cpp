@@ -32,7 +32,7 @@ int main(){
   initialize_psd::InitializePsd psd_initializer(manage_psd_data);
 
   for(int i = 0;i<manage_psd_data.GetBufferNum();i++){
-   psd_initializer.ExponentialDistribution();
+   psd_initializer.UniformDistribution();
     manage_psd_data.UpdateBufferParam();
     manage_psd_data.IntegrateVelocityPsdForRealPsd();
   }
