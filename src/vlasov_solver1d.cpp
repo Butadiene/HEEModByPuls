@@ -49,19 +49,6 @@ namespace vlasov1d_solver{
        
       }
 
-      double Vlasov1DSolver::Li_plusFunc(double fmin,double fmax,double fi,double value){
-        float res = 0.0;
-        if(value>=0.0){res = std::min(2.0*(fi-fmin),value);}
-        else{res = std::max(2.0*(fi-fmax),value);}
-        return res;
-      }
-
-      double Vlasov1DSolver::Li_minusFunc(double fmin,double fmax,double fi,double value){
-        float res = 0.0;
-        if(value>=0.0){res = std::min(2*(fmax-fi),value);}
-        else{res = std::max(2*(fmin-fi),value);}
-        return res;
-      }
 
       void Vlasov1DSolver::calcFminFmax(double &fmin,double &fmax,double fi_plus2,double fi_plus1,double fi,double fi_minus1,double fi_minus2){
         double fmax1 = std::max(std::max(fi_minus1,fi),std::min(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
@@ -77,19 +64,19 @@ namespace vlasov1d_solver{
         fmin = std::max(0.0,std::min(fmin1,fmin2));
       };
 
-//fmaxを１、fminを0で追いおいてみたり　それでもだめなのでたぶん
-    double Vlasov1DSolver::Li_plusFuncAlt(double fmin,double fmax,double value1,double value2){
+
+    double Vlasov1DSolver::Li_plusFunc(double fmin,double fmax,double value1,double value2){
         float res = 0.0;
         if(value1>=value2){res = std::min(2*(value2-fmin),value1-value2);}
         else{res = std::max(2*(value2-fmax),value1-value2);}
-        return res;
+        return res;//value1-value2;
       }
 
-      double Vlasov1DSolver::Li_minusFuncAlt(double fmin,double fmax,double value1,double value2){
+      double Vlasov1DSolver::Li_minusFunc(double fmin,double fmax,double value1,double value2){
         float res = 0.0;
         if(value1>=value2){res = std::min(2*(fmax-value1),value1-value2);}
         else{res = std::max(2*(fmin-value1),value1-value2);}
-        return res;
+        return res;//value1-value2;
       }
    
     void Vlasov1DSolver::solver(){
@@ -127,7 +114,7 @@ namespace vlasov1d_solver{
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 0.1;
+        double delta_t_aster = 0.15;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -160,7 +147,7 @@ namespace vlasov1d_solver{
 
                     float tesst = -myu_aster/q_aster*guzai_aster/(T_period*Omega_e);
 
-                    double velocity_aster = -velocity_aster_numerator/velocity_aster_denominator;
+                    double velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 
                     double u_plus = 0.0;
 
@@ -177,81 +164,38 @@ namespace vlasov1d_solver{
 
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
-                    double nuu = -velocity_aster*delta_t_aster/delta_x_aster;
+                    double nuu = velocity_aster*delta_t_aster/delta_x_aster;
                    
                     double Li_plus = 0.0;
                     double Li_minus = 0.0;
 
-                    double fmax1 = std::max(std::max(fi_minus1,fi),std::min(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
-
-                    double fmax2 = std::max(std::max(fi_plus1,fi),std::min(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
-
-                    double fmin1 = std::min(std::min(fi_minus1,fi),std::max(2*fi_minus1-fi_minus2,2*fi-fi_plus1));
-
-                    double fmin2 = std::min(std::min(fi_plus1,fi),std::max(2*fi_plus1-fi_plus2,2*fi-fi_minus1));
-
-                    double fmax = std::max(fmax1,fmax2);
-
-                    double fmin = std::max(0.0,std::min(fmin1,fmin2));
-
-
-
-
-                    double kfmax1 = std::max(std::max(fi_minus2,fi_minus1),std::min(2*fi_minus2-fi_minus3,2*fi_minus1-fi));
-
-                    double kfmax2 = std::max(std::max(fi,fi_minus1),std::min(2*fi-fi_plus1,2*fi_minus1-fi_minus2));
-
-                    double kfmin1 = std::min(std::min(fi_minus2,fi_minus1),std::max(2*fi_minus2-fi_minus3,2*fi_minus1-fi));
-
-                    double kfmin2 = std::min(std::min(fi,fi_minus1),std::max(2*fi-fi_plus1,2*fi_minus1-fi_minus2));
-
-                    double kfmax = std::max(kfmax1,kfmax2);
-
-                    double kfmin = std::max(0.0,std::min(kfmin1,kfmin2));
-
+                    double fmax,fmin;
 
                     if(velocity_aster<0){
-                        Li_plus = fi-fi_plus1;
-                        Li_minus = fi_plus1-fi_plus2;
                          calcFminFmax(fmin,fmax,fi_minus1,fi,fi_plus1,fi_plus2,fi_plus3);
-                   //     Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
-                   //     Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
-                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi,fi_plus1);
-                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi_plus1,fi_plus2);
+                        Li_plus = Li_plusFunc(fmin,fmax,fi,fi_plus1);
+                        Li_minus = Li_minusFunc(fmin,fmax,fi_plus1,fi_plus2);
                         u_plus = nuu*fi_plus1+nuu*(1+nuu)*(2+nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
-                        Li_plus = fi_minus1-fi;
-                        Li_minus = fi-fi_plus1;
-                         calcFminFmax(fmin,fmax,fi_minus2,fi_minus1,fi,fi_plus1,fi_plus2);
-                    //    Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
-                     //   Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
-                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi_minus1,fi);
-                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi,fi_plus1);
+
+                         calcFminFmax(fmin,fmax,fi_minus2,fi_minus1,fi,fi_plus1,fi_plus2);;
+                        Li_plus = Li_plusFunc(fmin,fmax,fi_minus1,fi);
+                        Li_minus = Li_minusFunc(fmin,fmax,fi,fi_plus1);
                         u_minus =nuu*fi+nuu*(1+nuu)*(2+nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
                     }else{
-                        Li_plus = fi_plus1-fi;
-                        Li_minus = fi-fi_minus1;
                         calcFminFmax(fmin,fmax,fi_plus2,fi_plus1,fi,fi_minus1,fi_minus2);
-                     //   Li_plus = Li_pl%usFunc(fmin,fmax,fi,fi_plus1-fi);
-                      //  Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
-                         Li_plus = Li_plusFuncAlt(fmin,fmax,fi_plus1,fi);
-                        Li_minus = Li_minusFuncAlt(fmin,fmax,fi,fi_minus1);
+                         Li_plus = Li_plusFunc(fmin,fmax,fi_plus1,fi);
+                        Li_minus = Li_minusFunc(fmin,fmax,fi,fi_minus1);
                         u_plus = nuu*fi+nuu*(1-nuu)*(2-nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
 
-                        calcFminFmax(fmin,fmax,fi_plus1,fi,fi_minus1,fi_minus2,fi_minus3);
-                        Li_plus = fi-fi_minus1;
-                        Li_minus = fi_minus1-fi_minus2;
-                     //   Li_plus = Li_plusFunc(fmin,fmax,fi,Li_plus);
-                     //   Li_minus = Li_minusFunc(fmin,fmax,fi,Li_minus);
-                        Li_plus = Li_plusFuncAlt(fmin,fmax,fi,fi_minus1);
-                      Li_minus = Li_minusFuncAlt(fmin,fmax,fi_minus1,fi_minus2);
+                       calcFminFmax(fmin,fmax,fi_plus1,fi,fi_minus1,fi_minus2,fi_minus3);
+                        Li_plus = Li_plusFunc(fmin,fmax,fi,fi_minus1);
+                      Li_minus = Li_minusFunc(fmin,fmax,fi_minus1,fi_minus2);
                         u_minus =nuu*fi_minus1+nuu*(1-nuu)*(2-nuu)*(Li_plus)/6+nuu*(1-nuu)*(1+nuu)*(Li_minus)/6;
 
                     }
                     
-                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi-u_minus+u_plus));
-                    float updatefi = fi+u_minus-u_plus;
-                    float testeee = 0.0;
-                    //manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,k);
+                    manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
+           
 
                 }
             }
