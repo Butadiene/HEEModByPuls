@@ -1,7 +1,10 @@
 #include "../include/vlasov_solver1d.hpp"
 #include "../include/physical_constant.hpp"
+#include <filesystem>
+#include <unistd.h>
 #include <cmath>
 #include <iostream>
+#include <fstream>
 
 namespace heemodbypuls{
 namespace vlasov1d_solver{
@@ -69,14 +72,14 @@ namespace vlasov1d_solver{
         float res = 0.0;
         if(value1>=value2){res = std::min(2*(value2-fmin),value1-value2);}
         else{res = std::max(2*(value2-fmax),value1-value2);}
-        return value1-value2;
+        return res;//value1-value2;
       }
 
       double Vlasov1DSolver::Li_minusFunc(double fmin,double fmax,double value1,double value2){
         float res = 0.0;
         if(value1>=value2){res = std::min(2*(fmax-value1),value1-value2);}
         else{res = std::max(2*(fmin-value1),value1-value2);}
-        return value1-value2;
+        return res;//value1-value2;
       }
    
     void Vlasov1DSolver::solver(){
@@ -114,11 +117,12 @@ namespace vlasov1d_solver{
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 0.15;
+        double delta_t_aster = 0.03;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
            theta = 0;
+           double count = 0.01;
 
             for(int j=0;j<real_grid_num;j++){
                 focus_real_grid[0] = j;
@@ -130,11 +134,9 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast = 0.01;
+                    double v_perp_ast = 0.1;
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
-
-
 
                     float phase = 2.0*PI*(t_aster-Lvalue*R_zero*(theta+0.5*delta_theta)/lamda)+PI/2.0;
                 
@@ -208,11 +210,31 @@ namespace vlasov1d_solver{
                     }
                     
                     manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
-          
 
+                    if(i%3==0){
+                      std::ofstream ofs;
+                      std::ios_base::openmode mode = std::ios::app;
+                      if(k==0&&(j==0&&i==0)) mode = std::ios::out;
+                      ofs.open("../../data/testdata/testdata3.csv",mode);
+                      //relative path from build/test
+                      if(j==real_grid_num-1){
+                        ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
+                      }else{
+                        ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
+                      }
+                      ofs.close();
+                     
+                      
+                    }
+                    count += fi;
+                 
                 }
                 
             }
+            std::ofstream of;
+            of.open("../../data/testdata/sum.csv",std::ios::app);
+             of<<count<<std::endl;
+             of.close();
             t_aster += delta_t_aster;
             manage_psd_data_.UpdateBufferParam();
            

@@ -57,6 +57,9 @@ for graph(recommend installation via pip3)
 ### numpy
 for matplotlib(recommend installation via pip3)
 
+### pandas
+for matplotlib(recommend installation via pip3)
+
 ## Install List(not must)
 ###pylint
 
