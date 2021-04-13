@@ -112,17 +112,17 @@ namespace vlasov1d_solver{
         constexpr double q_aster = 1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
         constexpr double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 20.0;
+        constexpr double m_number = 120.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 0.03;
+        double delta_t_aster = 0.0012;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
            theta = 0;
-           double count = 0.01;
+           double count = 0.0;
 
             for(int j=0;j<real_grid_num;j++){
                 focus_real_grid[0] = j;
@@ -215,7 +215,7 @@ namespace vlasov1d_solver{
                       std::ofstream ofs;
                       std::ios_base::openmode mode = std::ios::app;
                       if(k==0&&(j==0&&i==0)) mode = std::ios::out;
-                      ofs.open("../../data/testdata/testdata3.csv",mode);
+                      ofs.open("../../data/testdata/focus_mnum120.csv",mode);
                       //relative path from build/test
                       if(j==real_grid_num-1){
                         ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;

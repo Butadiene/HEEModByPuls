@@ -22,7 +22,7 @@ class Vlasov1DSolver{
 
 
 
-    const std::int_fast32_t all_steps_ = 600;
+    const std::int_fast32_t all_steps_ = 8000;
 
 
     //void set_field
