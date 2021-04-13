@@ -6,7 +6,7 @@
 #include "../include/initialize_field.hpp"
 #include "../include/manage_psd_data_on_coordinate.hpp"
 #include "../include/manage_field_data_on_coordinate.hpp"
-#include "../include/vlasov_solver.hpp"
+#include "../include/vlasov_solver1d.hpp"
 using namespace heemodbypuls;
 
 int main(){
@@ -19,16 +19,10 @@ int main(){
     coordinate_spec.get_total_grid_num_(),
     heembp_param::kPsdBufferNum);
 
-  psd_store_data_in_memory_array.TestAssignmentToDataArray();
-
   //for real psd
   store_data_in_memory_array::StoreDataInMemoryArray real_psd_by_integrate_velocity_psd_store_data_in_memory_array(
     coordinate_spec.get_real_grid_num_(),
     psd_store_data_in_memory_array.get_buffer_num_());
-
-  real_psd_by_integrate_velocity_psd_store_data_in_memory_array.TestAssignmentToDataArray();
-
-  // create manage psd data instance
 
   manage_psd_data_on_coordinate::ManagePsdDataOnCoordinate manage_psd_data(
     psd_store_data_in_memory_array,
@@ -37,22 +31,12 @@ int main(){
 
   initialize_psd::InitializePsd psd_initializer(manage_psd_data);
 
-
   for(int i = 0;i<manage_psd_data.GetBufferNum();i++){
-    //psd_initializer.TestInitialize7();
+   psd_initializer.UniformDistribution();
     manage_psd_data.UpdateBufferParam();
     manage_psd_data.IntegrateVelocityPsdForRealPsd();
   }
-
-  //psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
-
-  //real_psd_by_integrate_velocity_psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
-
-  std::vector<int_fast32_t> testvector{1,0,1};
-  std::vector<int_fast32_t> testvector2{1,0,1};
-
-  std::cout<<manage_psd_data.GetVelocityPsd(testvector,testvector2)<<"\n";
-
+//psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
   
   //for field
   std::int_fast32_t array_elements_num_for_field 
@@ -62,29 +46,16 @@ int main(){
     array_elements_num_for_field,
     heembp_param::kFieldBufferNum);
 
-    field_store_data_in_memory_array.TestAssignmentToDataArray();
+  field_store_data_in_memory_array.TestAssignmentToDataArray();
 
   manage_field_data_on_coordinate::ManageFieldDataOnCoordinate manage_field_data(field_store_data_in_memory_array,coordinate_spec);
 
-  initialize_field::InitializeField field_initializer(manage_field_data);
+  apply_boundary_condition::ApplyBoundaryCondition apply_boundary_condition(coordinate_spec);
 
-   for(int i = 0;i<manage_field_data.GetBufferNum();i++){
-    //field_initializer.TestInitialize9();
-    //manage_field_data.UpdateBufferParam();
-   }
+  vlasov1d_solver::Vlasov1DSolver vlasov1d_solver(manage_psd_data,manage_field_data,apply_boundary_condition,coordinate_spec);
+  vlasov1d_solver.solver();
 
-  field_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
-
-  std::cout<<manage_field_data.GetFieldValue(1,testvector)[0]<<"\n";
-
-  //apply_boundary_condition::ApplyBoundaryCondition boudary_condition_applyier(coordinate_spec);
-  
-  //vlasov_solver::VlasovSolver(manage_psd_data,manage_field_data,boudary_condition_applyier);
+   psd_store_data_in_memory_array.TestWriteOutDataArrayToTerminal();
 
 
-
-  std::cout<< coordinate_spec.get_total_grid_num_() <<"\n";
-  std::cout<< coordinate_spec.get_real_dimension_num_() <<"\n";
-  std::cout<< coordinate_spec.get_velocity_dimension_num_() <<"\n";
-  std::cout<< "\n";
 }
