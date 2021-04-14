@@ -54,12 +54,12 @@ $E_{wave} =E_A\sin\{2\pi(\frac{t}{T}-\frac{r\theta}{\lambda})+\frac{\pi}{2}\}$
 
 $\vec{E}_{wave} = \vec{e_r} E_{wave}$
 
-$\vec{B_0}= \frac{\mu_0}{4\pi}\frac{3(\vec{m}\cdot \vec{\hat{x}})\vec{\hat{x}}-\vec{m}}{|\vec{x}|^3}$
+$\vec{B_0}= \frac{\mu_0}{4\pi}\frac{3(\vec{m_E}\cdot \vec{\hat{x}})\vec{\hat{x}}-\vec{m_E}}{|\vec{x}|^3}$
 
 
-$\vec{m} = m\vec{e_z}$
+$\vec{m_E} = m_E\vec{e_z}$
 
-$\vec{B_0} = \frac{\mu_0}{4\pi}\frac{3mz \vec{\hat{x}}-m \vec{e_z} }{|\vec{x}|^3}$
+$\vec{B_0} = \frac{\mu_0}{4\pi}\frac{3m_E\frac{z}{|\vec{x}|} \vec{\hat{x}}-m_E \vec{e_z} }{|\vec{x}|^3}$
 
 
 $\vec{E_0} = \vec{0}$
@@ -93,7 +93,7 @@ Assumption
 - $\frac{\partial B_z}{\partial z}= 0$
 - $\frac{\partial B_r}{\partial z}= 0$
 - $E_{wave} = E_{wave}(\theta)$)
-($r$ is const::$r = R_0$)
+($r$ is const)
 so,
 
 
