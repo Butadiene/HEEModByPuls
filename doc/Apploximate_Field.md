@@ -11,7 +11,7 @@ using $\frac{\partial B_z}{\partial r}$
 $\vec{B_0} = \frac{\mu_0}{4\pi}\frac{3m\frac{z}{|\vec{x}|} \vec{\hat{x}}-m \vec{e_z} }{|\vec{x}|^3} =  \frac{m\mu_0}{4\pi}\frac{3\frac{z}{|\vec{x}|} \vec{\hat{x}}- \vec{e_z} }{|\vec{x}|^3}$
 
 $\frac{3\frac{z}{|\vec{x}|} \vec{\hat{x}}- \vec{e_z} }{|\vec{x}|^3}  = \frac{3z \vec{x}- \vec{e_z}|\vec{x}|^2 }{|\vec{x}|^5} =  \frac{3z \vec{x}- \vec{e_z}(r^2+z^2) }{(r^2+z^2)^{\frac{5}{2}}}$
-// ここから！！！！！　上が本当か確かめる
+
 $\frac{\partial B_z}{\partial r}$:
 
 
@@ -19,7 +19,7 @@ $\frac{\partial}{\partial r}  \frac{3z^2- (r^2+z^2) }{(r^2+z^2)^{\frac{5}{2}}}\v
 
 when $z = 0$
 
-$ = \frac{-2r^6+5r^6}{r^{10}}\vec{e_z} = 3\frac{1}{r^4}$
+$ = \frac{-2r^6+5r^6}{r^{10}}\vec{e_z} = 3\frac{1}{r^4}\vec{e_z}$
 
 $\frac{\partial B_z}{\partial z}$:
 
@@ -27,7 +27,7 @@ $\frac{\partial}{\partial z}\frac{3z^2-(r^2+z^2) }{(r^2+z^2)^{\frac{5}{2}}} \vec
 
 when $z = 0$
 
-$ =0$
+$ =\vec{0}$
 
 $\frac{\partial B_r}{\partial z}$:
 
