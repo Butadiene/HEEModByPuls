@@ -88,9 +88,12 @@ $\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial \vec
 
 $= \vec{E}_{wave}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}\{\frac{\partial}{\partial t}(\frac{c\vec{E} _{wave}}{|B|^2}\times \vec{B})+\frac{1}{2}\nabla|\frac{c\vec{E} _{wave}}{|B|^2}\times \vec{B}|^2\}$
 
+in $z = 0$,
+- $\frac{\partial B_z}{\partial z}= 0$
+
 Assumption 
 - $\vec{B}_{wave}<<\vec{B_0}$
-- $\frac{\partial B_z}{\partial z}= 0$
+
 - $\frac{\partial B_r}{\partial z}= 0$
 - $E_{wave} = E_{wave}(\theta)$)
 ($r$ is const)
