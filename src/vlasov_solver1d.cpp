@@ -112,7 +112,7 @@ namespace vlasov1d_solver{
         constexpr double q_aster = 1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
         constexpr double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 120.0;
+        constexpr double m_number = 80.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
@@ -134,7 +134,7 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast = 0.1;
+                    double v_perp_ast = 0.01;
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
