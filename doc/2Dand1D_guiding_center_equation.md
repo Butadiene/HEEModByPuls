@@ -96,7 +96,8 @@ in $z = 0$,
 - $E_{wave} = E_{wave}(\theta)$)
 
 Assumption 
-- $\vec{B}_{wave}<<\vec{B_0}$
+- $\vec{B} = \vec{B_0}$
+$(\vec{B}_{wave}<<\vec{B_0})$
 
 so,
 
