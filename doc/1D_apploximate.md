@@ -1,4 +1,4 @@
-
+    
 $\vec{E}_{wave} = \vec{e_r} E_A\sin\{2\pi(\frac{t}{T}-\frac{m_{num}\theta}{2\pi})+\frac{\pi}{2}\}$
 
 $\frac{m}{q}(\frac{\partial E_{wave}}{\partial t}\frac{c}{B_z}-c^2\frac{E_{wave}}{B_z^2}\frac{\partial E_{wave}}{r\partial \theta})$
