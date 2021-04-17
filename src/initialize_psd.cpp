@@ -77,7 +77,7 @@ namespace initialize_psd{
 
         for(int i =0;i<real_each_grid_num;i++){
             focus_real_grid[0] = i;
-            density = 0.2;
+            density = 1;
             for(int j = 0;j<coordinate_spec.get_velocity_each_grid_num_()[0];j++){
                 focus_velocity_grid[0] = j;
                 manage_psd_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,density);

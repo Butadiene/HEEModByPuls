@@ -218,8 +218,10 @@ namespace vlasov1d_solver{
                       ofs.open("../../data/testdatav2/test.csv",mode);
                       if(j==real_grid_num-1){
                         ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
+                       
                       }else{
                         ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
+                      
                       }
                       ofs.close();
                      
