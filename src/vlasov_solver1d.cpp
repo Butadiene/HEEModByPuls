@@ -119,6 +119,7 @@ namespace vlasov1d_solver{
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
         double delta_t_aster = 0.0036;
+        constexpr double wave_offset = PI;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -135,17 +136,17 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast = 0.01;
+                    double v_perp_ast = 0.1;
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
-                    float phase = 2.0*PI*(t_aster-m_number*(theta+0.5*delta_theta)/(2.0*PI))+PI/2.0;
+                    float phase = 2.0*PI*(t_aster-m_number*(theta+0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
                 
                    // phase = PI/2.0; //constant electric field
 
                     double velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    double velocity_aster_numerator = -(E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+                    double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
                     double velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 
@@ -155,13 +156,13 @@ namespace vlasov1d_solver{
 
 
 
-                    phase = 2.0*PI*(t_aster-Lvalue*R_zero*(theta-0.5*delta_theta)/lamda)+PI/2.0;
+                    phase = 2.0*PI*(t_aster-Lvalue*R_zero*(theta-0.5*delta_theta)/lamda)+PI/2.0+wave_offset;
                 
                     //phase = PI/2.0; //constant electric field
 
                     velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    velocity_aster_numerator = -(E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+                    velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
                     velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 
@@ -216,13 +217,13 @@ namespace vlasov1d_solver{
                       std::ofstream ofs;
                       std::ios_base::openmode mode = std::ios::app;
                       if(k==0&&(j==0&&i==0)) mode = std::ios::out;
-                      ofs.open("../../data/testdatav2/test001.csv",mode);
+                      ofs.open("../../data/testdatav2/test001_20_sinv2.csv",mode);
                       if(j==real_grid_num-1){
-                        ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
-                        //ofs<<std::sin(phase)<<std::endl;
+                        //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
+                        ofs<<std::sin(phase)<<std::endl;
                       }else{
-                        ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
-                        //ofs<<std::sin(phase)<<",";
+                        //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
+                        ofs<<std::sin(phase)<<",";
                       
                       }
                       ofs.close();
