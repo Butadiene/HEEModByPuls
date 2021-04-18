@@ -44,7 +44,7 @@ ULF waves
 
 ($L$ : L-shell, $R_0$ : Earth Radius, $m_{num}$ : m number)
 
-$\vec{B}_{wave} =\vec{e_\theta} B_A\sin\{2\pi(\frac{t}{T}-\frac{m_{num}\theta}{2\pi})\}$
+$\vec{B}_{wave} =\vec{e_\theta} B_A\sin\{2\pi(\frac{t}{T}-\frac{m_{num}\theta}{2\pi})+\pi\}$
 
 
 

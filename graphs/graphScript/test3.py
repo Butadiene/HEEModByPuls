@@ -12,8 +12,8 @@ fig, ax1 = plt.subplots(1, 1)
 
 ax2 = ax1.twinx()
 m_num = 80
-data = pd.read_csv('data/testdatav2/test001_80_245.csv',header=None)
-data2 = -1*pd.read_csv('data/testdatav2/test001_80_245_sin.csv',header=None)
+data = pd.read_csv('data/testdatav4/test.csv',header=None)
+data2 = -1*pd.read_csv('data/testdatav4/test_sin.csv',header=None)
 def update(frame):
     ax1.cla() # ax をクリア
     ax2.cla() # ax をクリア

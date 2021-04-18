@@ -14,3 +14,5 @@ $wave_{length} = 6400\mathrm{km}\times6\times2\pi/20= 12000\mathrm{km}$
 
 $T =100\mathrm{s}$
 $v_{wave} = wave_{length}/T=  120\mathrm{km/s}$
+
+$m_{num} = \frac{\mathrm{EarthRadius} \times L\times 2\pi}{\mathrm{ULFwavelength}}$
