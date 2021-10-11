@@ -111,15 +111,15 @@ namespace vlasov1d_solver{
         constexpr double m_aster = 1.0;
         constexpr double q_aster = -1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
-        constexpr double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 80.0;
+        constexpr double E_aster_A = 1.7E-7/B_eq;//4.0E3/lightspeed;
+        constexpr double m_number = 10.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double test = lamda/128;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
         double delta_t_aster = 0.0036;
-        constexpr double wave_offset = PI;
+        constexpr double wave_offset = 0.5*PI;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
@@ -136,7 +136,7 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast = 0.45;
+                    double v_perp_ast = 0.44;
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
@@ -218,13 +218,24 @@ namespace vlasov1d_solver{
                       std::ofstream ofs;
                       std::ios_base::openmode mode = std::ios::app;
                       if(k==0&&(j==0&&i==0)) mode = std::ios::out;
-                      ofs.open("../../data/testdatav4/test_sin2.csv",mode);
+                      ofs.open("../../data/testdatav9/B_sin.csv",mode);
                       if(j==real_grid_num-1){
                         //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
                         ofs<<std::sin(phase+0.5*PI)<<std::endl;
                       }else{
                         //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
                         ofs<<std::sin(phase+0.5*PI)<<",";
+                      
+                      }
+                      ofs.close();
+                     
+                      ofs.open("../../data/testdatav9/t1.csv",mode);
+                      if(j==real_grid_num-1){
+                        ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
+                        //ofs<<std::sin(phase+0.5*PI)<<std::endl;
+                      }else{
+                        ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
+                        //ofs<<std::sin(phase+0.5*PI)<<",";
                       
                       }
                       ofs.close();
@@ -237,7 +248,7 @@ namespace vlasov1d_solver{
                 
             }
             std::ofstream of;
-            of.open("../../data/testdata/sum.csv",std::ios::app);
+            of.open("../../data/testdatav9/sum.csv",std::ios::app);
              of<<count<<std::endl;
              of.close();
             t_aster += delta_t_aster;
