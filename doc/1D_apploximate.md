@@ -10,4 +10,4 @@ $q = 4.8\times10^{-10}\mathrm{statC}$
 $m = 9.1\times10^{-28}\mathrm{g}$
 $B_z = 1.4\times10^{-3}\mathrm{G}$
 
-$E_A\times(4.0\times10^{-7} +2.9\times10^{-8})$
+$E_A\times(4.0\times10^{-7}+2.9\times10^{-8})$
