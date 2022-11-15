@@ -10,7 +10,7 @@ import numpy as np
 fig, ax1 = plt.subplots(1, 1)
 
 m_num = 70
-focusTime = 0.8
+focusTime = 0.1
 
 data = pd.read_csv('data/testdatav9/t1.csv',header=None)
 datay = data.iloc[int(focusTime/(0.0108))]

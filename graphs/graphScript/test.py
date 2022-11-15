@@ -11,8 +11,10 @@ fig, ax = plt.subplots(1, 1)
 
 m_num = 70
 
-data = pd.read_csv('data/testdatav9/t2.csv',header = None)
-plt.imshow(data, cmap=plt.cm.get_cmap("jet"), interpolation='nearest',aspect = 10000*50/m_num, extent=[0,6400*6*2*3.14/m_num,0.0006*1000,0], vmin = 0, vmax = 3)
+
+
+data = pd.read_csv('data/testdtv/0t2.csv',header = None)
+plt.imshow(data, cmap=plt.cm.get_cmap("jet"), interpolation='nearest',aspect = 10000*50/m_num, extent=[0,6400*6*2*3.14/m_num,0.0006*1000,0])#, vmin = 0, vmax = 3)
 
 ax.set_xlabel('position[km]')
 ax.set_ylabel('Time[T=ULFWavePeriod]')
