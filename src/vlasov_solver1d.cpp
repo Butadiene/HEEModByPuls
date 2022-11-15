@@ -112,7 +112,7 @@ namespace vlasov1d_solver{
         constexpr double q_aster = -1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
         constexpr double E_aster_A = 1.7E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 10.0;
+        constexpr double m_number = 20.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double test = lamda/128;
         double theta = 0.0;
@@ -213,12 +213,19 @@ namespace vlasov1d_solver{
                     }
                     
                     manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
+                    
+                    std::string outfilename = "../../data/testdtv/";
+                    outfilename += "1";
+                    
+                    std::string tempoutfilename;
+
 
                     if(i%3==0){
                       std::ofstream ofs;
                       std::ios_base::openmode mode = std::ios::app;
                       if(k==0&&(j==0&&i==0)) mode = std::ios::out;
-                      ofs.open("../../data/testdatav9/B_sin.csv",mode);
+                      tempoutfilename = outfilename + "B_sin2.csv";
+                      ofs.open(tempoutfilename,mode);
                       if(j==real_grid_num-1){
                         //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
                         ofs<<std::sin(phase+0.5*PI)<<std::endl;
@@ -228,8 +235,8 @@ namespace vlasov1d_solver{
                       
                       }
                       ofs.close();
-                     
-                      ofs.open("../../data/testdatav9/t1.csv",mode);
+                      tempoutfilename = outfilename + "t2.csv";
+                      ofs.open(tempoutfilename,mode);
                       if(j==real_grid_num-1){
                         ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
                         //ofs<<std::sin(phase+0.5*PI)<<std::endl;
@@ -247,10 +254,10 @@ namespace vlasov1d_solver{
                 }
                 
             }
-            std::ofstream of;
-            of.open("../../data/testdatav9/sum.csv",std::ios::app);
-             of<<count<<std::endl;
-             of.close();
+           // std::ofstream of;
+           // of.open("../../data/testdatav9/sum2.csv",std::ios::app);
+           //  of<<count<<std::endl;
+           //  of.close();
             t_aster += delta_t_aster;
             manage_psd_data_.UpdateBufferParam();
            

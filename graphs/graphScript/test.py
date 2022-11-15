@@ -9,10 +9,10 @@ import numpy as np
 # グラフとして描画するデータ
 fig, ax = plt.subplots(1, 1)
 
-m_num = 10
+m_num = 70
 
-data = pd.read_csv('data/testdatav9/t1.csv',header = None)
-plt.imshow(data, cmap=plt.cm.get_cmap("jet"), interpolation='nearest',aspect = 800*50/m_num, extent=[0,6400*6*2*3.14/m_num,0.0036*2000,0])
+data = pd.read_csv('data/testdatav9/t2.csv',header = None)
+plt.imshow(data, cmap=plt.cm.get_cmap("jet"), interpolation='nearest',aspect = 10000*50/m_num, extent=[0,6400*6*2*3.14/m_num,0.0006*1000,0], vmin = 0, vmax = 3)
 
 ax.set_xlabel('position[km]')
 ax.set_ylabel('Time[T=ULFWavePeriod]')
@@ -20,7 +20,7 @@ ax.set_ylabel('Time[T=ULFWavePeriod]')
 
 x = np.arange(0, 6400*6*2*3.14/m_num, 2)
 y = x*0+2.5
-ax.plot(x, y, color=(1,0,1), linewidth=5)
+#ax.plot(x, y, color=(1,0,1), linewidth=5)
 
 y = x*0+5.5
 
@@ -37,7 +37,7 @@ x = np.linspace(-1, 1, N)
 lines = [[(0, i), (6400*6*2*3.14/m_num, i+1)] for i in range(N)]
 #lines = [[(0, i+1), (6400*6*2*3.14/m_num, i)] for i in range(N)]
 lc = mc.LineCollection(lines, colors=(1,1,1), linewidths=2)
-ax.add_collection(lc)
+#ax.add_collection(lc)
 
 fig.text(1, 0, 'WhiteLine:ULF EWaves Bottom', ha='right')
 plt.colorbar()
