@@ -9,7 +9,7 @@ $\vec{v} = v_\parallel\frac{\vec{B}^\ast}{B^\ast_\parallel}+\frac{\vec{D}}{B_\pa
 $\dot{v}_ \parallel = \frac{q}{m}\vec{D}\cdot\frac{\vec{B}^\ast}{{B^\ast}_\parallel}$
 
 
-$\vec{D} = \vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(v_\parallel\frac{\partial b}{\partial t}+\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
+$\vec{D} = \vec{E}-\frac{\mu}{q}\nabla B - \frac{m}{q}(v_\parallel\frac{\partial b}{\partial t}+\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
 
 $\vec{v_E} =\frac{\vec{E}}{B} \times \vec{b}$
 
@@ -26,7 +26,7 @@ $\frac{\partial f}{\partial t}+\vec{v} \cdot \frac{\partial f}{\partial \vec{x}}
 
 $\vec{v} = \frac{\vec{D}}{B_\parallel^\ast}\times\vec{b}$
 
-$\vec{D} =\vec{E}-\frac{\mu}{q}\nabla \vec{B} - \frac{m}{q}(\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
+$\vec{D} =\vec{E}-\frac{\mu}{q}\nabla B - \frac{m}{q}(\frac{\partial \vec{v_E}}{\partial t}+\nabla \frac{v_E^2}{2})$
 
 $\vec{v_E} =\frac{\vec{E}}{B} \times \vec{b}$
 

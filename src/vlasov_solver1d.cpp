@@ -5,6 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <string>
 
 namespace heemodbypuls{
 namespace vlasov1d_solver{
@@ -109,20 +110,22 @@ namespace vlasov1d_solver{
         constexpr double PI = mathcommon::PI;
         constexpr double B_z_aster = 1.0;
         constexpr double m_aster = 1.0;
-        constexpr double q_aster = 1.0;
+        constexpr double q_aster = -1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
-        constexpr double E_aster_A = 1.0E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 20.0;
+        constexpr double E_aster_A = 1.7E-7/B_eq;//4.0E3/lightspeed;
+        constexpr double m_number = 50.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
+        double test = lamda/128;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
      
-        double delta_t_aster = 0.03;
+        double delta_t_aster = 0.0036;
+        constexpr double wave_offset = 0.5*PI;
         
         for(int i = 0;i<all_steps_;i++){
            //field_update(); not used field_component value
            theta = 0;
-           double count = 0.01;
+           double count = 0.0;
 
             for(int j=0;j<real_grid_num;j++){
                 focus_real_grid[0] = j;
@@ -134,17 +137,17 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast = 0.1;
+                    double v_perp_ast =0.0;// 0.44;
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
-                    float phase = 2.0*PI*(t_aster-Lvalue*R_zero*(theta+0.5*delta_theta)/lamda)+PI/2.0;
+                    float phase = 2.0*PI*(t_aster-m_number*(theta+0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
                 
                    // phase = PI/2.0; //constant electric field
 
                     double velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    double velocity_aster_numerator = -(E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+                    double velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
                     double velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 
@@ -154,13 +157,13 @@ namespace vlasov1d_solver{
 
 
 
-                    phase = 2.0*PI*(t_aster-Lvalue*R_zero*(theta-0.5*delta_theta)/lamda)+PI/2.0;
+                    phase = 2.0*PI*(t_aster-m_number*(theta-0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
                 
                     //phase = PI/2.0; //constant electric field
 
                     velocity_aster_denominator = -(B_z_aster+(m_aster/q_aster)*(guzai_aster/(T_period*Omega_e)*((E_aster_A/(B_z_aster*B_z_aster))*std::sin(phase))));
 
-                    velocity_aster_numerator = -(E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
+                    velocity_aster_numerator = (E_aster_A*std::sin(phase)-myu_aster/q_aster*guzai_aster/(T_period*Omega_e)+m_aster/q_aster*1.0/(B_z_aster*B_z_aster*B_z_aster)*guzai_aster/(T_period*Omega_e)*std::pow(E_aster_A*std::sin(phase),2.0));
 
                     velocity_aster = velocity_aster_numerator/velocity_aster_denominator;
 
@@ -187,6 +190,7 @@ namespace vlasov1d_solver{
                     double fmax,fmin;
 
                     if(velocity_aster<0){
+                     
                          calcFminFmax(fmin,fmax,fi_minus1,fi,fi_plus1,fi_plus2,fi_plus3);
                         Li_plus = Li_plusFunc(fmin,fmax,fi,fi_plus1);
                         Li_minus = Li_minusFunc(fmin,fmax,fi_plus1,fi_plus2);
@@ -210,17 +214,37 @@ namespace vlasov1d_solver{
                     }
                     
                     manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
+                    
+                    std::string outfilename = "../../data/testdtv/";
+                    outfilename += std::to_string(k);
+                    
+                    std::string tempoutfilename;
+
 
                     if(i%3==0){
                       std::ofstream ofs;
                       std::ios_base::openmode mode = std::ios::app;
                       if(k==0&&(j==0&&i==0)) mode = std::ios::out;
-                      ofs.open("../../data/testdata/testdata3.csv",mode);
-                      //relative path from build/test
+                      tempoutfilename = outfilename + "B_sin2.csv";
+                      ofs.open(tempoutfilename,mode);
+                      if(j==real_grid_num-1){
+                        //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
+                        ofs<<std::sin(phase+0.5*PI)<<std::endl;
+                      }else{
+                        //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
+                        ofs<<std::sin(phase+0.5*PI)<<",";
+                      
+                      }
+                      ofs.close();
+                      tempoutfilename = outfilename + "t2.csv";
+                      ofs.open(tempoutfilename,mode);
                       if(j==real_grid_num-1){
                         ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
+                        //ofs<<std::sin(phase+0.5*PI)<<std::endl;
                       }else{
                         ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
+                        //ofs<<std::sin(phase+0.5*PI)<<",";
+                      
                       }
                       ofs.close();
                      
@@ -231,10 +255,10 @@ namespace vlasov1d_solver{
                 }
                 
             }
-            std::ofstream of;
-            of.open("../../data/testdata/sum.csv",std::ios::app);
-             of<<count<<std::endl;
-             of.close();
+           // std::ofstream of;
+           // of.open("../../data/testdatav9/sum2.csv",std::ios::app);
+           //  of<<count<<std::endl;
+           //  of.close();
             t_aster += delta_t_aster;
             manage_psd_data_.UpdateBufferParam();
            
