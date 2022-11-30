@@ -9,13 +9,16 @@ import numpy as np
 # グラフとして描画するデータ
 fig, ax1 = plt.subplots(1, 1)
 
-m_num = 70
-focusTime = 0.1
+m_num = 60
+focusTime = 0.7
 
-data = pd.read_csv('data/testdatav9/t1.csv',header=None)
-datay = data.iloc[int(focusTime/(0.0108))]
 
-print(datay)
+deltat = 0.0036
+#data = pd.read_csv('data/testdatav9/t1.csv',header=None)
+
+                                
+
+#print(datay)
 
 len = 6400*6*2*3.14/m_num
 
@@ -24,21 +27,30 @@ ax1.set_xlabel('position[km]')
 ax1.set_ylabel('density')
 ax1.set_ylim(0.0,40.0)
 #ax1.set_ylim(0,5)
-ax1.plot(x,datay,color = (0,0,1),label = "density", linewidth=4)
+for i in range(2):
+    path = "data/testdtv/"
+    num = str(i)
+    data = pd.read_csv(path+num+'t2.csv',header=None)
+    datay = data.iloc[int(focusTime/(deltat))]
+    colors = [(0,0,1),(0,1,0),(1,0,0),(1,1,0),(1,0,1),(0,1,1),(0,0,0),(0.2,0.2,0.2)]
+    ax1.plot(x,datay,colors[i],label = "density", linewidth=2)
+
 
 
 ax2 = ax1.twinx()
 data2 = -1*pd.read_csv('data/testdatav5/E_sin.csv',header=None)
-datay2 = data2.iloc[int(focusTime/(0.0108))]
+datay2 = data2.iloc[int(focusTime/(deltat))]
 ax2.set_ylabel('-ULF Ewaves')
 #ax2.plot(x, datay2,color=(0,1,0),label = "-ULF Ewaves", linewidth=4)
 
-data3 = pd.read_csv('data/testdatav9/B_sin.csv',header=None)
-datay3 = data3.iloc[int(focusTime/(0.0108))]
+data3 = pd.read_csv('data/testdtv/0B_sin2.csv',header=None)
+datay3 = data3.iloc[int(focusTime/(deltat))]
 ax2.set_ylabel('ULF Bwaves(normalized)')
 ax2.plot(x, datay3,color=(0,1,1),label = "ULF Bwaves", linewidth=4)
 
 h1, l1 = ax1.get_legend_handles_labels()
 h2, l2 = ax2.get_legend_handles_labels()
 ax1.legend(h1+h2, l1+l2, loc='upper right')
+plt.xticks(np.arange(0, 4000,200))
+plt.grid(axis = 'x', color='b', linewidth=0.3)
 plt.show()

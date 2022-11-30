@@ -100,7 +100,7 @@ namespace vlasov1d_solver{
         constexpr double R_zero = 6.4E8;
         constexpr double lightspeed = physical_constant::lightspeed;
         constexpr double B_E = 3.11E-1;
-        constexpr double T_period = 100.0;
+        constexpr double T_period = 120.0;
         constexpr double B_eq = B_E/(Lvalue*Lvalue*Lvalue);
         constexpr double guzai_aster = -3.0*lightspeed*T_period/Lvalue/R_zero; 
         constexpr double m_e = 9.1E-28;
@@ -113,7 +113,7 @@ namespace vlasov1d_solver{
         constexpr double q_aster = -1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
         constexpr double E_aster_A = 1.7E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 50.0;
+        constexpr double m_number = 80.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double test = lamda/128;
         double theta = 0.0;
@@ -137,7 +137,11 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast =0.0;// 0.44;
+                    focus_velocity_grid[0] = k;
+                    //42.0keV  0.402c
+                    //50.3keV  0.44c
+
+                    double v_perp_ast = 0.402 + double(k)*0.038;
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
