@@ -9,12 +9,13 @@ import numpy as np
 # グラフとして描画するデータ
 fig, ax1 = plt.subplots(1, 1)
 
-m_num = 60
-focusTime = 0.7
+m_num = 70
+focusTime = 0.4
 
 
 deltat = 0.0036
 #data = pd.read_csv('data/testdatav9/t1.csv',header=None)
+ax1.cla() # ax をクリア
 
                                 
 
@@ -25,19 +26,23 @@ len = 6400*6*2*3.14/m_num
 x = np.arange(0,len,len/128)
 ax1.set_xlabel('position[km]')
 ax1.set_ylabel('density')
-ax1.set_ylim(0.0,40.0)
+ax1.set_ylim(0.0,80.0)
 #ax1.set_ylim(0,5)
 for i in range(2):
     path = "data/testdtv/"
     num = str(i)
     data = pd.read_csv(path+num+'t2.csv',header=None)
-    datay = data.iloc[int(focusTime/(deltat))]
-    colors = [(0,0,1),(0,1,0),(1,0,0),(1,1,0),(1,0,1),(0,1,1),(0,0,0),(0.2,0.2,0.2)]
-    ax1.plot(x,datay,colors[i],label = "density", linewidth=2)
+    datay = np.ndarray.flatten(pd.DataFrame(data.loc[int(focusTime/(deltat))]).to_numpy())
+    print(datay)
+    colors = [(0,0,1),(0,1,0)]#,(1,0,0),(1,1,0),(1,0,1),(0,1,1),(0,0,0),(0.2,0.2,0.2)]
+    labels = ["42.0keV","50.3keV"]
+    ax1.legend(labels[i])
+    ax1.plot(x,datay,color = colors[i],label = labels[i], linewidth=2)
 
 
 
 ax2 = ax1.twinx()
+ax2.cla() 
 data2 = -1*pd.read_csv('data/testdatav5/E_sin.csv',header=None)
 datay2 = data2.iloc[int(focusTime/(deltat))]
 ax2.set_ylabel('-ULF Ewaves')
