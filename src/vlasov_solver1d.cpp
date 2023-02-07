@@ -100,9 +100,9 @@ namespace vlasov1d_solver{
         constexpr double R_zero = 6.4E8;
         constexpr double lightspeed = physical_constant::lightspeed;
         constexpr double B_E = 3.11E-1;
-        constexpr double T_period = 100.0;
+        constexpr double T_period = 250.0;
         constexpr double B_eq = B_E/(Lvalue*Lvalue*Lvalue);
-        constexpr double guzai_aster = -3.0*lightspeed*T_period/Lvalue/R_zero; 
+        constexpr double guzai_aster = -1.4*lightspeed*T_period/Lvalue/R_zero; 
         constexpr double m_e = 9.1E-28;
         constexpr double q_e = 4.8E-10;
         double t_aster = 0.0;
@@ -112,14 +112,15 @@ namespace vlasov1d_solver{
         constexpr double m_aster = 1.0;
         constexpr double q_aster = -1.0;
         constexpr double Omega_e = B_eq*q_e/(m_e*lightspeed);
-        constexpr double E_aster_A = 1.7E-7/B_eq;//4.0E3/lightspeed;
-        constexpr double m_number = 50.0;
+        constexpr double E_aster_A = 2.0*1.7E-7/B_eq;//4.0E3/lightspeed;
+        constexpr double m_number = 10.0;
         constexpr double lamda = Lvalue*R_zero*2.*PI/m_number;
         double test = lamda/128;
         double theta = 0.0;
         double delta_theta = 2.0*PI/(m_number*real_grid_num);
+        double eastwest = -1.0;
      
-        double delta_t_aster = 0.0036;
+        double delta_t_aster = 0.003;
         constexpr double wave_offset = 0.5*PI;
         
         for(int i = 0;i<all_steps_;i++){
@@ -137,11 +138,11 @@ namespace vlasov1d_solver{
                 focus_real_grid_minus3[0] = (j-3+real_grid_num)%real_grid_num;
                 theta += delta_theta;
                 for(int k=0;k<velocity_grid_num;k++){
-                    double v_perp_ast =0.0;// 0.44;
+                    double v_perp_ast =0.44;//0.44;//0.405 //0.369
                     double myu_aster = m_aster*v_perp_ast*v_perp_ast/(2.0*B_z_aster);
                     double delta_x_aster = (R_zero * Lvalue * delta_theta)/(lightspeed*T_period);
 
-                    float phase = 2.0*PI*(t_aster-m_number*(theta+0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
+                    float phase = 2.0*PI*(eastwest*t_aster-m_number*(theta+0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
                 
                    // phase = PI/2.0; //constant electric field
 
@@ -157,7 +158,7 @@ namespace vlasov1d_solver{
 
 
 
-                    phase = 2.0*PI*(t_aster-m_number*(theta-0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
+                    phase = 2.0*PI*(eastwest*t_aster-m_number*(theta-0.5*delta_theta)/(2.0*PI))+PI/2.0+wave_offset;
                 
                     //phase = PI/2.0; //constant electric field
 
@@ -215,13 +216,13 @@ namespace vlasov1d_solver{
                     
                     manage_psd_data_.SetVelocityPsd(focus_real_grid,focus_velocity_grid,(fi+u_minus-u_plus));
                     
-                    std::string outfilename = "../../data/testdtv/";
+                    std::string outfilename = "../../data/testdtv2/";
                     outfilename += std::to_string(k);
                     
                     std::string tempoutfilename;
 
 
-                    if(i%3==0){
+                    if(true){
                       std::ofstream ofs;
                       std::ios_base::openmode mode = std::ios::app;
                       if(k==0&&(j==0&&i==0)) mode = std::ios::out;
@@ -229,10 +230,10 @@ namespace vlasov1d_solver{
                       ofs.open(tempoutfilename,mode);
                       if(j==real_grid_num-1){
                         //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<std::endl;
-                        ofs<<std::sin(phase+0.5*PI)<<std::endl;
+                        ofs<<std::sin(phase+eastwest*0.5*PI)<<std::endl;
                       }else{
                         //ofs<<manage_psd_data_.GetVelocityPsd(focus_real_grid,focus_velocity_grid)<<",";
-                        ofs<<std::sin(phase+0.5*PI)<<",";
+                        ofs<<std::sin(phase+eastwest*0.5*PI)<<",";
                       
                       }
                       ofs.close();
