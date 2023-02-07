@@ -13,7 +13,7 @@ int main(){
   
   coordinate_spec::CoordinateSpec coordinate_spec;
 
-  //for psd
+  //for psd 
 
   store_data_in_memory_array::StoreDataInMemoryArray psd_store_data_in_memory_array(
     coordinate_spec.get_total_grid_num_(),
